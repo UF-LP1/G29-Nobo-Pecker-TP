@@ -19,6 +19,9 @@ eFarmaceutico::~eFarmaceutico() {
 }
 
 bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<unsigned int> cant, unsigned int* n) {
+    
+    
+    
     //es lo mismo que comprar golosinas, genera la lista de medicamentos y me la suma al carrito
     //devuelvo false si nullptr, no hay stock, no existe, etc.
     return false;
