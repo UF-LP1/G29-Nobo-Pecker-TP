@@ -19,6 +19,6 @@ eOrtopedia::~eOrtopedia() {
 }
 
 bool eOrtopedia::venderProducto(CLIENTE c, pOrtopedia** p, unsigned int** cant, unsigned int* n) {
-    //idem farm
+    
     return false;
 }
