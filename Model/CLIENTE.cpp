@@ -123,10 +123,19 @@ bool CLIENTE::pagar(double m, metodoPago metp) {
     return pagado;
 }
 
-bool CLIENTE::comprarGolosinas(pGolosinas g, unsigned int n) {
-    //me crea una lista de golosinas y una lista de n's donde cada golosina tiene su respectivo n y me lo agrega al carrito
-    //devuelvo false si no tengo las golosinas que me piden, si hay nullptr, etc
-    return false;
+bool CLIENTE::comprarGolosinas(vector<pGolosinas>g, vector<unsigned int >cant) {
+   
+    for (int i = 0; i < g.size(); i++)
+    {
+        if (g[i].get_stock() >= cant[i])
+        {
+            this->carrito.push_back(g[i]);
+            this->cantidades.push_back(cant[i]);
+        }
+        else return false;
+    }
+  
+    return true;
 }
 
 void CLIENTE:: set_nec(necesidadCliente n) {

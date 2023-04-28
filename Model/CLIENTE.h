@@ -30,7 +30,7 @@ public:
     ~CLIENTE(); //D
 
     bool pagar(double m, metodoPago metp);
-    bool comprarGolosinas(pGolosinas g, unsigned int n);
+    bool comprarGolosinas(vector <pGolosinas> g, vector<unsigned int> cant);
     void set_nec(necesidadCliente n);
     necesidadCliente get_nec();
     void set_metP(metodoPago MP);
