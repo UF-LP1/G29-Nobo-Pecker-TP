@@ -15,7 +15,7 @@
 class eFarmaceutico : public EMPLEADO {
 public:
 
-    const tipoEmpleado f;
+    const tipoEmpleado farmaceutico_;
 
     eFarmaceutico(string na, string dni, tipoEmpleado f, double ef, double app, double deb, double cr, string tel, string mail); //C
     ~eFarmaceutico(); //D
