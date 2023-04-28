@@ -10,7 +10,11 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA(na, dni, ef, app, deb, cr, tel, mail), nro(nro) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA(na, dni, tel, mail), nro(nro) { 
+    this->efectivo = ef;
+    this->app = app;
+    this->credito = cr;
+    this->debito = deb;
     this->preferenciaTicketFisico = true;
     this->nec = nec;
     this->metP = metP;
@@ -19,6 +23,43 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
 
 CLIENTE::~CLIENTE() {
 
+}
+
+
+double CLIENTE::get_efectivo() {
+    return this->efectivo;
+}
+
+double CLIENTE::get_app() {
+    return this->app;
+}
+
+double CLIENTE::get_debito() {
+    return this->debito;
+}
+
+double CLIENTE::get_credito() {
+    return this->credito;
+}
+
+void CLIENTE::set_efectivo(double e) {
+    this->efectivo = e;
+    return;
+}
+
+void CLIENTE::set_credito(double cr) {
+    this->credito = cr;
+    return;
+}
+
+void CLIENTE::set_app(double mP) {
+    this->app = mP;
+    return;
+}
+
+void CLIENTE::set_debito(double d) {
+    this->debito = d;
+    return;
 }
 
 bool CLIENTE::pagar(double m, metodoPago metp) {

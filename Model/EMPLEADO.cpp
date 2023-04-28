@@ -10,7 +10,7 @@
   */
 
 
-EMPLEADO::EMPLEADO(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail) : PERSONA(na, dni, ef, app, deb, cr, tel, mail) {
+EMPLEADO::EMPLEADO(string na, string dni, string tel, string mail) : PERSONA(na, dni, tel, mail) {
     this->sueldo = 0.0;
     this->horariosTrabajo = "0";
 }

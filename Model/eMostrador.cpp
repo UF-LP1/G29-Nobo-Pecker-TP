@@ -10,7 +10,7 @@
   */
 
 
-eMostrador::eMostrador(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail) : EMPLEADO(na, dni, ef, app, deb, cr, tel, mail) {
+eMostrador::eMostrador(string na, string dni, string tel, string mail) : EMPLEADO(na, dni, tel, mail) {
 
 }
 

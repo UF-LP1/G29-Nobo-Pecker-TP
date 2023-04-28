@@ -10,7 +10,7 @@
   */
 
 
-eFarmaceutico::eFarmaceutico(string na, string dni, tipoEmpleado f, double ef, double app, double deb, double cr, string tel, string mail) :EMPLEADO(na, dni, ef, app, deb, cr, tel, mail), f(f) {
+eFarmaceutico::eFarmaceutico(string na, string dni, tipoEmpleado f, string tel, string mail) :EMPLEADO(na, dni, tel, mail), f(f) {
 
 }
 

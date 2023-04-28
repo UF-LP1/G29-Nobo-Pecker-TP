@@ -11,7 +11,7 @@
 class eLimpieza : public EMPLEADO {
 public:
 
-	eLimpieza(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail); //C
+	eLimpieza(string na, string dni, string tel, string mail); //C
 	~eLimpieza(); //D
 
 };

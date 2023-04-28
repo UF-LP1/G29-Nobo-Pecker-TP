@@ -13,7 +13,7 @@
 class eCajero : public EMPLEADO {
 public:
 
-    eCajero(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail); //C
+    eCajero(string na, string dni, string tel, string mail); //C
     ~eCajero(); //D
 
     double cobrar(CLIENTE c, FARMACIA f, bool ticketFisico);

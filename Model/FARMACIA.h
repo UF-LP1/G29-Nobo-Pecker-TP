@@ -23,8 +23,6 @@ public:
     string get_horarioSemana();
     string get_horarioFinde();
     double get_fondos();
-    bool pagarEmpleado(EMPLEADO e);
-    bool actualizarSueldo(EMPLEADO e, int porcentaje);
     bool actualizarStock(PRODUCTO p, int n);
 
 private:

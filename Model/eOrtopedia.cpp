@@ -10,7 +10,7 @@
   */
 
 
-eOrtopedia::eOrtopedia(string na, string dni, tipoEmpleado o, double ef, double app, double deb, double cr, string tel, string mail) : EMPLEADO(na, dni, ef, app, deb, cr, tel, mail), o(o) {
+eOrtopedia::eOrtopedia(string na, string dni, tipoEmpleado o, string tel, string mail) : EMPLEADO(na, dni, tel, mail), o(o) {
 
 }
 

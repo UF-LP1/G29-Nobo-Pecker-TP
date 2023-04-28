@@ -16,7 +16,7 @@
 class eMostrador : public EMPLEADO {
 public:
 
-	eMostrador(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail);
+	eMostrador(string na, string dni, string tel, string mail);
 	~eMostrador();
 
 	tipoEmpleado atenderCliente(CLIENTE c);
