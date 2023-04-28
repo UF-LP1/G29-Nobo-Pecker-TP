@@ -10,7 +10,7 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA(na, dni, tel, mail), nro(nro) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA (na, dni, tel, mail), nro(nro) { 
     this->efectivo = ef;
     this->app = app;
     this->credito = cr;
