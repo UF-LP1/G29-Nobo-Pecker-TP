@@ -7,19 +7,14 @@
 #define _ELIMPIEZA_H
 
 #include "EMPLEADO.h"
+#include "CLIENTE.h"
 
+class eLimpieza : public EMPLEADO {
+public:
 
-class eLimpieza: public EMPLEADO {
-public: 
-    
-/**
- * @param na
- * @param dni
- */
-void eLimpieza(string na, string dni);
-protected: 
-    
-void eLimpieza();
+	eLimpieza(string na, string dni); //C
+	~eLimpieza(); //D
+
 };
 
 #endif //_ELIMPIEZA_H

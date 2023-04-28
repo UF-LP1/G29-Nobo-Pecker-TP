@@ -7,31 +7,17 @@
 #define _ECAJERO_H
 
 #include "EMPLEADO.h"
+#include "CLIENTE.h"
 
+class eCajero : public EMPLEADO {
+public:
 
-class eCajero: public EMPLEADO {
-public: 
-    
-/**
- * @param na
- * @param dni
- */
-void eCajero(string na, string dni);
-    
-/**
- * @param c
- */
-double calcularMonto(CLIENTE c);
-    
-/**
- * @param c
- * @param m
- * @param ticketFisico
- */
-bool cobrar(CLIENTE c, double m, bool ticketFisico);
-protected: 
-    
-void eCajero();
+    eCajero(string na, string dni); //C
+    ~eCajero(); //D
+
+    double calcularMonto(CLIENTE c);
+    bool cobrar(CLIENTE c, double m, bool ticketFisico);
+
 };
 
 #endif //_ECAJERO_H

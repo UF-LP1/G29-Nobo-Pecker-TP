@@ -7,27 +7,21 @@
 #define _EPERFUMERIA_H
 
 #include "EMPLEADO.h"
+#include "tipoEmpleado.h"
+#include "CLIENTE.h"
+#include "pPerfumeria.h"
 
 
-class ePerfumeria: public EMPLEADO {
-public: 
+class ePerfumeria : public EMPLEADO {
+public:
+
     const tipoEmpleado p;
-    
-/**
- * @param na
- * @param dni
- * @param p
- */
-void ePerfumeria(string na, string dni, tipoEmpleado p);
-    
-/**
- * @param c
- * @param p
- */
-bool venderProducto(CLIENTE c, pPerfumeria p);
-protected: 
-    
-void ePerfumeria();
+
+    ePerfumeria(string na, string dni, tipoEmpleado p);
+    ~ePerfumeria();
+
+    bool venderProducto(CLIENTE c, pPerfumeria p);
+
 };
 
 #endif //_EPERFUMERIA_H

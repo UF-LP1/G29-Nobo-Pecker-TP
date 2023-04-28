@@ -7,20 +7,17 @@
 #define _PGOLOSINAS_H
 
 #include "PRODUCTO.h"
+#include "golosinas.h"
 
 
-class pGolosinas: public PRODUCTO {
-public: 
+class pGolosinas : public PRODUCTO {
+public:
+
     const golosinas articulo;
-    
-/**
- * @param n
- * @param art
- */
-void pGolosinas(string n, golosinas art);
-protected: 
-    
-void pGolosinas();
+
+    pGolosinas(string n, golosinas art);
+    ~pGolosinas();
+
 };
 
 #endif //_PGOLOSINAS_H

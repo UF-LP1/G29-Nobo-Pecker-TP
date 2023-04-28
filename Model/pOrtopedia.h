@@ -7,20 +7,16 @@
 #define _PORTOPEDIA_H
 
 #include "PRODUCTO.h"
+#include "artOrtopedia.h"
 
+class pOrtopedia : public PRODUCTO {
+public:
 
-class pOrtopedia: public PRODUCTO {
-public: 
     const artOrtopedia articulo;
-    
-/**
- * @param n
- * @param art
- */
-void pOrtopedia(string n, artOrtopedia art);
-protected: 
-    
-void pOrtopedia();
+
+    pOrtopedia(string n, artOrtopedia art);
+    ~pOrtopedia();
+
 };
 
 #endif //_PORTOPEDIA_H

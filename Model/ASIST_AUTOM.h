@@ -7,17 +7,13 @@
 #define _ASIST_AUTOM_H
 
 class ASIST_AUTOM {
-public: 
-    
-void ASIST_AUTOM();
-    
-/**
- * @param c
- */
-void entregarTicket(CLIENTE c);
-protected: 
-    
-void ASIST_AUTOM();
+public:
+
+    ASIST_AUTOM(); //C
+    ~ASIST_AUTOM(); //D
+
+    void entregarTicket(CLIENTE c);
+
 };
 
 #endif //_ASIST_AUTOM_H
