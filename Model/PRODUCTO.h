@@ -6,7 +6,7 @@
 #ifndef _PRODUCTO_H
 #define _PRODUCTO_H
 
-#include "CLIENTE.h"
+#include "PERSONA.h"
 
 class PRODUCTO {
 public:
