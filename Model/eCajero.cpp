@@ -18,8 +18,6 @@ eCajero::~eCajero() {
 
 }
 
-
-
 double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
 
     double monto= 0.0;
@@ -53,5 +51,12 @@ double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
     double nuevosFondos = f.get_fondos() + monto;
     f.set_fondos(nuevosFondos);
 
+    if (ticketFisico)
+        cout << "El cliente pago: $" << monto;
+    else
+    {
+        string mailC = get_mail();
+        cout << "El ticket se envio por mail";
+    }
     return monto;
 }
