@@ -22,9 +22,64 @@ CLIENTE::~CLIENTE() {
 }
 
 bool CLIENTE::pagar(double m, metodoPago metp) {
-    //descuento m de la billetera de cliente segun el metp y sumo m a los fondos de la farmacia
-    //devuelvo false si no le alcanza la plata en el metodo que eligio
-    return false;
+    
+    double billetera = 0.0;
+    bool pagado = false;
+
+    //segun su metodo de pago, le resto el monto a lo que tiene en su billetera
+    switch (metp)
+    {
+        case (metodoPago)0:
+        {
+            billetera = get_efectivo();
+            if (billetera >= m)
+            { 
+                set_efectivo(billetera - m);
+                pagado = true;
+            }
+            break;
+    
+        }
+
+        case (metodoPago)1:
+        {
+            billetera = get_credito();
+            if (billetera >= m)
+            {
+                set_credito(billetera - m);
+                pagado = true;
+            }
+            break;
+
+        }
+
+        case (metodoPago)2:
+        {
+            billetera = get_debito();
+            if (billetera >= m)
+            {
+                set_debito(billetera - m);
+                pagado = true;
+            }
+            break;
+
+        }
+
+        case (metodoPago)3:
+        {
+            billetera = get_app();
+            if (billetera >= m)
+            {
+                set_app(billetera - m);
+                pagado = true;
+            }
+            break;
+
+        }
+
+    }
+
+    return pagado;
 }
 
 bool CLIENTE::comprarGolosinas(pGolosinas g, unsigned int n) {

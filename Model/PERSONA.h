@@ -19,6 +19,7 @@ public:
 
     void set_efectivo(double e);
     void set_app(double mP);
+    void set_credito(double cr);
     void set_debito(double d);
     void set_telefono(string t);
     void set_mail(string m);
@@ -26,6 +27,8 @@ public:
     double get_app();
     double get_debito();
     double get_credito();
+    string get_mail();
+    string get_telefono();
 
 protected:
     const string nombreApellido;

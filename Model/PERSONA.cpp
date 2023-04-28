@@ -27,6 +27,11 @@ void PERSONA::set_efectivo(double e) {
     return;
 }
 
+void PERSONA::set_credito(double cr) {
+    this->credito = cr;
+    return;
+}
+
 void PERSONA::set_app(double mP) {
     this->app = mP;
     return;
@@ -61,4 +66,12 @@ double PERSONA::get_debito() {
 
 double PERSONA::get_credito() {
     return this->credito;
+}
+
+string PERSONA::get_mail() {
+    return this->mail;
+}
+
+string PERSONA::get_telefono() {
+    return this->telefono;
 }
