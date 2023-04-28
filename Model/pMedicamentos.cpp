@@ -5,20 +5,14 @@
 
 #include "pMedicamentos.h"
 
-/**
- * pMedicamentos implementation
- */
+ /**
+  * pMedicamentos implementation
+  */
 
-
-/**
- * @param n
- * @param d
- * @param vl
- */
-void pMedicamentos::pMedicamentos(string n, string d, bool vl) {
+pMedicamentos::pMedicamentos(string n, string d, bool vl) : PRODUCTO(n), ventaLibre(vl), descripcion(d) {
 
 }
 
-void pMedicamentos::pMedicamentos() {
+pMedicamentos::~pMedicamentos() {
 
 }

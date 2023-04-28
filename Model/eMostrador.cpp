@@ -5,27 +5,19 @@
 
 #include "eMostrador.h"
 
-/**
- * eMostrador implementation
- */
+ /**
+  * eMostrador implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- */
-void eMostrador::eMostrador(string na, string dni) {
+eMostrador::eMostrador(string na, string dni) : EMPLEADO(na, dni) {
 
 }
 
-/**
- * @param c
- * @return tipoEmpleado
- */
+eMostrador::~eMostrador() {
+
+}
+
 tipoEmpleado eMostrador::atenderCliente(CLIENTE c) {
     return null;
-}
-
-void eMostrador::eMostrador() {
-
 }

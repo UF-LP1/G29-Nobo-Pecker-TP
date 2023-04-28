@@ -5,20 +5,14 @@
 
 #include "RECETA.h"
 
-/**
- * RECETA implementation
- */
+ /**
+  * RECETA implementation
+  */
 
-
-/**
- * @param m
- * @param f
- * @param d
- */
-void RECETA::RECETA(string m, string f, string d) {
+RECETA::RECETA(string m, string f, string d) : medico(m), fecha(f), diagnostico(d) {
 
 }
 
-void RECETA::RECETA() {
+RECETA::~RECETA() {
 
 }

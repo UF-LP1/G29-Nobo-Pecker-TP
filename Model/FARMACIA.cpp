@@ -5,103 +5,66 @@
 
 #include "FARMACIA.h"
 
-/**
- * FARMACIA implementation
- */
+ /**
+  * FARMACIA implementation
+  */
 
 
-/**
- * @param n
- */
-void FARMACIA::FARMACIA(string n) {
+FARMACIA::FARMACIA(string n) :nombre(n) {
+    this->direccion = '0';
+    this->horarioSemana = '0';
+    this->horarioFinde = '0';
+    this->fondos = 0.0;
+}
+
+FARMACIA::~FARMACIA() {
 
 }
 
-/**
- * @param d
- * @return void
- */
 void FARMACIA::set_direccion(string d) {
+    this->direccion = d;
     return;
 }
 
-/**
- * @param hs
- * @return void
- */
 void FARMACIA::set_horarioSemana(string hs) {
+    this->horarioSemana = hs;
     return;
 }
 
-/**
- * @param hf
- * @return void
- */
 void FARMACIA::set_horarioFinde(string hf) {
+    this->horarioFinde = hf;
     return;
 }
 
-/**
- * @param f
- * @return void
- */
 void FARMACIA::set_fondos(double f) {
+    this->fondos = f;
     return;
 }
 
-/**
- * @return string
- */
 string FARMACIA::get_direccion() {
-    return "";
+    return this->direccion;
 }
 
-/**
- * @return string
- */
 string FARMACIA::get_horarioSemana() {
-    return "";
+    return this->horarioSemana;
 }
 
-/**
- * @return string
- */
 string FARMACIA::get_horarioFinde() {
-    return "";
+    return this->horarioFinde;
 }
 
-/**
- * @return double
- */
 double FARMACIA::get_fondos() {
-    return 0.0;
+    return this->fondos;
 }
 
-/**
- * @param e
- * @return bool
- */
 bool FARMACIA::pagarEmpleado(EMPLEADO e) {
     return false;
 }
 
-/**
- * @param e
- * @return bool
- */
 bool FARMACIA::actualizarSueldo(EMPLEADO e) {
     return false;
 }
 
-/**
- * @param p
- * @param n
- * @return bool
- */
 bool FARMACIA::actualizarStock(PRODUCTO p, int n) {
     return false;
-}
-
-void FARMACIA::FARMACIA() {
-
 }

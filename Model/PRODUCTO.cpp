@@ -5,63 +5,43 @@
 
 #include "PRODUCTO.h"
 
-/**
- * PRODUCTO implementation
- */
+ /**
+  * PRODUCTO implementation
+  */
 
+PRODUCTO::PRODUCTO(string n) :nombre(n) {
+    this->stock = 0;
+    this->precio = 0;
+    this->descuento = 0;
+}
 
-/**
- * @param n
- */
-void PRODUCTO::PRODUCTO(string n) {
+PRODUCTO::~PRODUCTO() {
 
 }
 
-/**
- * @param n
- * @return void
- */
 void PRODUCTO::set_stock(int n) {
+    this->stock = n;
     return;
 }
 
-/**
- * @param p
- * @return void
- */
 void PRODUCTO::set_precio(double p) {
+    this->precio = p;
     return;
 }
 
-/**
- * @param d
- * @return void
- */
 void PRODUCTO::set_descuento(unsigned int d) {
+    this->descuento = d;
     return;
 }
 
-/**
- * @return unsigned int
- */
 unsigned int PRODUCTO::get_stock() {
-    return null;
+    return this->stock;
 }
 
-/**
- * @return double
- */
 double PRODUCTO::get_precio() {
-    return 0.0;
+    return this->precio;
 }
 
-/**
- * @return unsigned int
- */
 unsigned int PRODUCTO::get_descuento() {
-    return null;
-}
-
-void PRODUCTO::PRODUCTO() {
-
+    return this->descuento;
 }

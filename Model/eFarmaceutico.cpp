@@ -5,30 +5,19 @@
 
 #include "eFarmaceutico.h"
 
-/**
- * eFarmaceutico implementation
- */
+ /**
+  * eFarmaceutico implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- * @param f
- */
-void eFarmaceutico::eFarmaceutico(string na, string dni, tipoEmpleado f) {
+eFarmaceutico::eFarmaceutico(string na, string dni, tipoEmpleado f) :EMPLEADO(na, dni), f(f) {
 
 }
 
-/**
- * @param c
- * @param m
- * @param cant
- * @return bool
- */
-bool eFarmaceutico::venderMedicamento(CLIENTE c, pMedicamento m, unsigned int cant) {
+eFarmaceutico::~eFarmaceutico() {
+
+}
+
+bool eFarmaceutico::venderMedicamento(CLIENTE c, pMedicamentos m, unsigned int cant) {
     return false;
-}
-
-void eFarmaceutico::eFarmaceutico() {
-
 }

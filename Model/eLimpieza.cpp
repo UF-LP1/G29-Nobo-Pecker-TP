@@ -5,19 +5,15 @@
 
 #include "eLimpieza.h"
 
-/**
- * eLimpieza implementation
- */
+ /**
+  * eLimpieza implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- */
-void eLimpieza::eLimpieza(string na, string dni) {
+eLimpieza::eLimpieza(string na, string dni) : EMPLEADO(na, dni) {
 
 }
 
-void eLimpieza::eLimpieza() {
+eLimpieza::~eLimpieza() {
 
 }

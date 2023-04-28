@@ -5,87 +5,60 @@
 
 #include "PERSONA.h"
 
-/**
- * PERSONA implementation
- */
+ /**
+  * PERSONA implementation
+  */
 
+PERSONA::PERSONA(string na, string dni) : nombreApellido(na), DNI(dni) {
+    this->efectivo = 0.0;
+    this->app = 0.0;
+    this->credito = 0.0;
+    this->debito = 0.0;
+    this->telefono = '0';
+    this->mail = '0';
+}
 
-/**
- * @param na
- * @param dni
- */
-void PERSONA::PERSONA(string na, string dni) {
+PERSONA::~PERSONA() {
 
 }
 
-/**
- * @param e
- * @return void
- */
 void PERSONA::set_efectivo(double e) {
+    this->efectivo = e;
     return;
 }
 
-/**
- * @param mP
- * @return void
- */
 void PERSONA::set_app(double mP) {
+    this->app = mP;
     return;
 }
 
-/**
- * @param d
- * @return void
- */
 void PERSONA::set_debito(double d) {
+    this->debito = d;
     return;
 }
 
-/**
- * @param t
- * @return void
- */
 void PERSONA::set_telefono(string t) {
+    this->telefono = t;
     return;
 }
 
-/**
- * @param m
- * @return void
- */
 void PERSONA::set_mail(string m) {
+    this->mail = m;
     return;
 }
 
-/**
- * @return double
- */
 double PERSONA::get_efectivo() {
-    return 0.0;
+    return this->efectivo;
 }
 
-/**
- * @return double
- */
 double PERSONA::get_app() {
-    return 0.0;
+    return this->app;
 }
 
-/**
- * @return double
- */
 double PERSONA::get_debito() {
-    return 0.0;
+    return this->debito;
 }
 
-/**
- * @return double
- */
 double PERSONA::get_credito() {
-    return 0.0;
-}
-
-void PERSONA::PERSONA() {
-
+    return this->credito;
 }

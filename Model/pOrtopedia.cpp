@@ -5,19 +5,14 @@
 
 #include "pOrtopedia.h"
 
-/**
- * pOrtopedia implementation
- */
+ /**
+  * pOrtopedia implementation
+  */
 
-
-/**
- * @param n
- * @param art
- */
-void pOrtopedia::pOrtopedia(string n, artOrtopedia art) {
+pOrtopedia::pOrtopedia(string n, artOrtopedia art) : PRODUCTO(n), articulo(art) {
 
 }
 
-void pOrtopedia::pOrtopedia() {
+pOrtopedia::~pOrtopedia() {
 
 }

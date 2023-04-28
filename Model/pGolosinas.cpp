@@ -5,19 +5,14 @@
 
 #include "pGolosinas.h"
 
-/**
- * pGolosinas implementation
- */
+ /**
+  * pGolosinas implementation
+  */
 
-
-/**
- * @param n
- * @param art
- */
-void pGolosinas::pGolosinas(string n, golosinas art) {
+pGolosinas::pGolosinas(string n, golosinas art) : PRODUCTO(n), articulo(art) {
 
 }
 
-void pGolosinas::pGolosinas() {
+pGolosinas::~pGolosinas() {
 
 }

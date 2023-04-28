@@ -5,39 +5,23 @@
 
 #include "CLIENTE.h"
 
-/**
- * CLIENTE implementation
- */
+ /**
+  * CLIENTE implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- * @param nro
- * @param nec
- */
-void CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec) {
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec) : PERSONA(na, dni), nro(nro), nec(nec) { //primero ctor madre, desp los at de la hija y como son const los inicializo asi
 
 }
 
-/**
- * @param m
- * @param metp
- * @return bool
- */
+CLIENTE::~CLIENTE() {
+
+}
+
 bool CLIENTE::pagar(double m, metodoPago metp) {
     return false;
 }
 
-/**
- * @param g
- * @param n
- * @return bool
- */
 bool CLIENTE::comprarGolosinas(pGolosinas g, unsigned int n) {
     return false;
-}
-
-void CLIENTE::CLIENTE() {
-
 }

@@ -5,29 +5,19 @@
 
 #include "eOrtopedia.h"
 
-/**
- * eOrtopedia implementation
- */
+ /**
+  * eOrtopedia implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- * @param o
- */
-void eOrtopedia::eOrtopedia(string na, string dni, tipoEmpleado o) {
+eOrtopedia::eOrtopedia(string na, string dni, tipoEmpleado o) : EMPLEADO(na, dni), o(o) {
 
 }
 
-/**
- * @param c
- * @param p
- * @return bool
- */
+eOrtopedia::~eOrtopedia() {
+
+}
+
 bool eOrtopedia::venderProducto(CLIENTE c, pOrtopedia p) {
     return false;
-}
-
-void eOrtopedia::eOrtopedia() {
-
 }

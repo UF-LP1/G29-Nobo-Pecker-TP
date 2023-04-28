@@ -1,3 +1,4 @@
+
 /**
  * Project Untitled
  */
@@ -5,19 +6,14 @@
 
 #include "pPerfumeria.h"
 
-/**
- * pPerfumeria implementation
- */
+ /**
+  * pPerfumeria implementation
+  */
 
-
-/**
- * @param n
- * @param art
- */
-void pPerfumeria::pPerfumeria(string n, artPerfumeria art) {
+pPerfumeria::pPerfumeria(string n, artPerfumeria art) : PRODUCTO(n), articulo(art) {
 
 }
 
-void pPerfumeria::pPerfumeria() {
+pPerfumeria::~pPerfumeria() {
 
 }

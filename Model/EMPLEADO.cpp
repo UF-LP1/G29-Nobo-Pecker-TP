@@ -5,49 +5,34 @@
 
 #include "EMPLEADO.h"
 
-/**
- * EMPLEADO implementation
- */
+ /**
+  * EMPLEADO implementation
+  */
 
 
-/**
- * @param na
- * @param dni
- */
-void EMPLEADO::EMPLEADO(string na, string dni) {
+EMPLEADO::EMPLEADO(string na, string dni) : PERSONA(na, dni) {
+    this->sueldo = 0.0;
+    this->horariosTrabajo = "0";
+}
+
+EMPLEADO::~EMPLEADO() {
 
 }
 
-/**
- * @param s
- * @return void
- */
 void EMPLEADO::set_sueldo(double s) {
+    this->sueldo = s;
     return;
 }
 
-/**
- * @param hT
- * @return void
- */
 void EMPLEADO::set_horariosTrabajo(string hT) {
+    this->horariosTrabajo = hT;
     return;
 }
 
-/**
- * @return double
- */
 double EMPLEADO::get_sueldo() {
-    return 0.0;
+    return this->sueldo;
 }
 
-/**
- * @return string
- */
 string EMPLEADO::get_horariosTrabajo() {
-    return "";
-}
-
-void EMPLEADO::EMPLEADO() {
-
+    return this->horariosTrabajo;
 }
