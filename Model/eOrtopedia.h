@@ -20,7 +20,7 @@ public:
     eOrtopedia(string na, string dni, tipoEmpleado o, double ef, double app, double deb, double cr, string tel, string mail);
     ~eOrtopedia();
 
-    bool venderProducto(CLIENTE c, pOrtopedia** p, unsigned int** cant, unsigned int* n);
+    bool venderProducto(CLIENTE c, vector<pOrtopedia> p, vector<unsigned int> cant, unsigned int* n);
 
 };
 
