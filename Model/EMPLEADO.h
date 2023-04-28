@@ -13,7 +13,7 @@
 class EMPLEADO : public PERSONA {
 public:
 
-    EMPLEADO(string na, string dni);
+    EMPLEADO(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail);
     ~EMPLEADO();
 
     void set_sueldo(double s);

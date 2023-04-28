@@ -17,7 +17,7 @@ public:
 
     const tipoEmpleado f;
 
-    eFarmaceutico(string na, string dni, tipoEmpleado f); //C
+    eFarmaceutico(string na, string dni, tipoEmpleado f, double ef, double app, double deb, double cr, string tel, string mail); //C
     ~eFarmaceutico(); //D
 
     bool venderMedicamento(CLIENTE c, pMedicamentos m, unsigned int cant);

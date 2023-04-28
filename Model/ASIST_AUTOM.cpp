@@ -19,6 +19,7 @@ ASIST_AUTOM::~ASIST_AUTOM() { //''
 
 }
 
-void ASIST_AUTOM::entregarTicket(CLIENTE c) { //al dia de hoy no se que pingo hace esta funcion
+int ASIST_AUTOM::entregarTicket(int i) { 
+    //me va incrementando en una unidad un numero que ya tengo en el main (i) y ese numero que me devuelve va a ser el nro con el q construyo el cliente
     return;
 }

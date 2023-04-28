@@ -17,7 +17,7 @@ public:
 
     const tipoEmpleado p;
 
-    ePerfumeria(string na, string dni, tipoEmpleado p);
+    ePerfumeria(string na, string dni, tipoEmpleado p, double ef, double app, double deb, double cr, string tel, string mail);
     ~ePerfumeria();
 
     bool venderProducto(CLIENTE c, pPerfumeria p);

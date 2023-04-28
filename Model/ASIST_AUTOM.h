@@ -12,7 +12,7 @@ public:
     ASIST_AUTOM(); //C
     ~ASIST_AUTOM(); //D
 
-    void entregarTicket(CLIENTE c);
+    int entregarTicket(int i);
 
 };
 

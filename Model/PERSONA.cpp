@@ -9,13 +9,13 @@
   * PERSONA implementation
   */
 
-PERSONA::PERSONA(string na, string dni) : nombreApellido(na), DNI(dni) {
-    this->efectivo = 0.0;
-    this->app = 0.0;
-    this->credito = 0.0;
-    this->debito = 0.0;
-    this->telefono = '0';
-    this->mail = '0';
+PERSONA::PERSONA(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail) : nombreApellido(na), DNI(dni) {
+    this->efectivo = ef;
+    this->app = app;
+    this->credito = cr;
+    this->debito = deb;
+    this->telefono = tel;
+    this->mail = mail;
 }
 
 PERSONA::~PERSONA() {

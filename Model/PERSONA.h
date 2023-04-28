@@ -11,7 +11,7 @@
 class PERSONA {
 public:
 
-    PERSONA(string na, string dni);
+    PERSONA(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail);
     ~PERSONA();
 
     void set_efectivo(double e);

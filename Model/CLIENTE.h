@@ -16,17 +16,19 @@
 using namespace std;
 
 
-class CLIENTE : public PERSONA {
+class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
 public:
 
     const necesidadCliente nec;
     const unsigned int nro;
+    bool preferenciaTicketFisico;
 
-    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec);//C
+    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf);//C
     ~CLIENTE(); //D
 
     bool pagar(double m, metodoPago metp);
     bool comprarGolosinas(pGolosinas g, unsigned int n);
+   
 
 };
 
