@@ -19,8 +19,7 @@ eMostrador::~eMostrador() {
 }
 
 tipoEmpleado eMostrador::atenderCliente(CLIENTE c) {
-    tipoEmpleado te;
     //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
     //EN EL MAIN ME VOY FIJANDO QUE VAYA ATENDIENDO POR NUMERO
-    return te;
+    return;
 }

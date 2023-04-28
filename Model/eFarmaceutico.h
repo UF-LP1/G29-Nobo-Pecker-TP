@@ -7,8 +7,8 @@
 #define _EFARMACEUTICO_H
 
 #include "EMPLEADO.h"
-#include "tipoEmpleado.h"
 #include "CLIENTE.h"
+#include "tipoEmpleado.h"
 #include "pMedicamentos.h"
 
 

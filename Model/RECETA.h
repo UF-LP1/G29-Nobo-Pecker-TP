@@ -6,7 +6,7 @@
 #ifndef _RECETA_H
 #define _RECETA_H
 
-#include "CLIENTE.h"
+#include "PERSONA.h"
 
 class RECETA {
 public:

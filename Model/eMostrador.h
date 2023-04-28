@@ -7,8 +7,9 @@
 #define _EMOSTRADOR_H
 
 #include "EMPLEADO.h"
-#include "tipoEmpleado.h"
 #include "CLIENTE.h"
+#include "tipoEmpleado.h"
+
 
 
 

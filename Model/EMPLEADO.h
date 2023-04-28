@@ -7,7 +7,6 @@
 #define _EMPLEADO_H
 
 #include "PERSONA.h"
-#include "CLIENTE.h"
 
 
 class EMPLEADO : public PERSONA {
