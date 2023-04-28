@@ -18,7 +18,7 @@ ePerfumeria::~ePerfumeria() {
 
 }
 
-bool ePerfumeria::venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int>, unsigned int *n) {
+bool ePerfumeria::venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int>) {
     //idem farm
     return false;
 }
