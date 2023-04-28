@@ -18,7 +18,7 @@ eFarmaceutico::~eFarmaceutico() {
 
 }
 
-bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<unsigned int> cant, unsigned int* n) {
+bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<unsigned int> cant) {
     
     
     
