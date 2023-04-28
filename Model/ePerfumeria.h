@@ -20,7 +20,7 @@ public:
     ePerfumeria(string na, string dni, tipoEmpleado p, string tel, string mail);
     ~ePerfumeria();
 
-    bool venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int> cant, unsigned int* n);
+    bool venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int> cant);
 
 };
 

@@ -18,7 +18,7 @@ eOrtopedia::~eOrtopedia() {
 
 }
 
-bool eOrtopedia::venderProducto(CLIENTE c, vector<pOrtopedia> p, vector<unsigned int> cant, unsigned int* n) {
+bool eOrtopedia::venderProducto(CLIENTE c, vector<pOrtopedia> p, vector<unsigned int> cant) {
     
     return false;
 }
