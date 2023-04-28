@@ -11,8 +11,8 @@ public:
 
     ASIST_AUTOM(); //C
     ~ASIST_AUTOM(); //D
-
-    int entregarTicket(int i);
+    int cantclientes;
+    int entregarTicket();
 
 };
 

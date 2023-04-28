@@ -20,7 +20,7 @@ public:
     eFarmaceutico(string na, string dni, tipoEmpleado f, double ef, double app, double deb, double cr, string tel, string mail); //C
     ~eFarmaceutico(); //D
 
-    bool venderMedicamento(CLIENTE c, pMedicamentos m, unsigned int cant);
+    bool venderMedicamento(CLIENTE c, pMedicamentos m, unsigned int cant, unsigned int n);
 
 };
 

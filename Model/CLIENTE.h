@@ -18,6 +18,7 @@ public:
     const necesidadCliente nec;
     const unsigned int nro;
     bool preferenciaTicketFisico;
+    //lista de productos
 
     CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf);//C
     ~CLIENTE(); //D

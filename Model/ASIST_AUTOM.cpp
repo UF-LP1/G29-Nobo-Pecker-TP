@@ -11,15 +11,15 @@
   */
 
 
-ASIST_AUTOM::ASIST_AUTOM() { //no tiene atributos asi que no hace nada
+ASIST_AUTOM::ASIST_AUTOM() { //inicializo cantclientes en 0
+    this->cantclientes = 0;
+}
+
+ASIST_AUTOM::~ASIST_AUTOM() { 
 
 }
 
-ASIST_AUTOM::~ASIST_AUTOM() { //''
-
-}
-
-int ASIST_AUTOM::entregarTicket(int i) { 
-    //me va incrementando en una unidad un numero que ya tengo en el main (i) y ese numero que me devuelve va a ser el nro con el q construyo el cliente
-    return;
+int ASIST_AUTOM::entregarTicket() { //incremento la cantidad de clientes en uno y devuelvo el numero anterior para asignarselo al cliente nuevo
+    this->cantclientes++;
+    return (cantclientes-1) ;
 }
