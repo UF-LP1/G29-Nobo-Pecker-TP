@@ -6,7 +6,10 @@
 #ifndef _PERSONA_H
 #define _PERSONA_H
 
-#include "CLIENTE.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class PERSONA {
 public:

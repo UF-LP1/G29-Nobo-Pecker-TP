@@ -10,10 +10,6 @@
 #include "necesidadCliente.h"
 #include "metodoPago.h"
 #include "pGolosinas.h"
-#include <iostream>
-#include <string>
-
-using namespace std;
 
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
