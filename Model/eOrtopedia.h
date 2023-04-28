@@ -15,7 +15,7 @@
 class eOrtopedia : public EMPLEADO {
 public:
 
-    const tipoEmpleado ortopedia_;
+    const tipoEmpleado o;
 
     eOrtopedia(string na, string dni, tipoEmpleado o, double ef, double app, double deb, double cr, string tel, string mail);
     ~eOrtopedia();

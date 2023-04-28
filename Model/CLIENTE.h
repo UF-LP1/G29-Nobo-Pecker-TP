@@ -15,7 +15,7 @@
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
 public:
 
-    const necesidadCliente nec;
+    necesidadCliente nec;
     const unsigned int nro;
     bool preferenciaTicketFisico;
     //lista de productos
@@ -25,6 +25,8 @@ public:
 
     bool pagar(double m, metodoPago metp);
     bool comprarGolosinas(pGolosinas g, unsigned int n);
+    void set_nec(necesidadCliente n);
+    necesidadCliente get_nec();
    
 
 };

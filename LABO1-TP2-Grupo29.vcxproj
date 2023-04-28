@@ -169,6 +169,7 @@
     <ClCompile Include="Model\pPerfumeria.cpp" />
     <ClCompile Include="Model\PRODUCTO.cpp" />
     <ClCompile Include="Model\RECETA.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

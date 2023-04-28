@@ -10,8 +10,9 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf) : PERSONA(na, dni, ef, app, deb, cr, tel, mail), nro(nro), nec(nec) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf) : PERSONA(na, dni, ef, app, deb, cr, tel, mail), nro(nro) { 
     this->preferenciaTicketFisico = true;
+    this->nec = nec;
 }
 
 CLIENTE::~CLIENTE() {
@@ -28,4 +29,13 @@ bool CLIENTE::comprarGolosinas(pGolosinas g, unsigned int n) {
     //me crea una lista de golosinas y una lista de n's donde cada golosina tiene su respectivo n y me lo agrega al carrito
     //devuelvo false si no tengo las golosinas que me piden, si hay nullptr, etc
     return false;
+}
+
+void CLIENTE:: set_nec(necesidadCliente n) {
+    this-> nec = n;
+    return;
+}
+
+necesidadCliente CLIENTE:: get_nec() {
+    return this-> nec;
 }
