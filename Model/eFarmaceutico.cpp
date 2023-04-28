@@ -20,9 +20,16 @@ eFarmaceutico::~eFarmaceutico() {
 
 bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<unsigned int> cant) {
     
-    
-    
-    //es lo mismo que comprar golosinas, genera la lista de medicamentos y me la suma al carrito
-    //devuelvo false si nullptr, no hay stock, no existe, etc.
-    return false;
+    //recorro la lista de medicamentos que quiero comprar para ir agregandolos al carrito
+    for (int i = 0; i < m.size(); i++)
+    {   
+        if (m[i].get_stock() >= cant[i])
+        {
+            c.carrito.push_back(m[i]);
+            c.cantidades.push_back(cant[i]);
+        }
+        else return false;
+    }
+    //si me pediste 27 pastillas pero entre ellas habia 2 ibuprofenos y yo tengo uno solo no te vendo y bueno...
+    return true;
 }
