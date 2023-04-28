@@ -15,8 +15,7 @@ public:
     eCajero(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail); //C
     ~eCajero(); //D
 
-    double calcularMonto(CLIENTE c);
-    bool cobrar(CLIENTE c, double m, bool ticketFisico);
+    bool cobrar(CLIENTE c, bool ticketFisico);
 
 };
 
