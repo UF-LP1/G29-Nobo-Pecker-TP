@@ -10,9 +10,11 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf) : PERSONA(na, dni, ef, app, deb, cr, tel, mail), nro(nro) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA(na, dni, ef, app, deb, cr, tel, mail), nro(nro) { 
     this->preferenciaTicketFisico = true;
     this->nec = nec;
+    this->metP = metP;
+    //carrito
 }
 
 CLIENTE::~CLIENTE() {
@@ -38,4 +40,13 @@ void CLIENTE:: set_nec(necesidadCliente n) {
 
 necesidadCliente CLIENTE:: get_nec() {
     return this-> nec;
+}
+
+void CLIENTE::set_metP (metodoPago MP) {
+    this->metP = MP;
+    return;
+}
+
+metodoPago CLIENTE:: get_metP() {
+    return this->metP;
 }

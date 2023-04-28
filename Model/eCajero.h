@@ -8,6 +8,7 @@
 
 #include "EMPLEADO.h"
 #include "CLIENTE.h"
+#include "FARMACIA.h"
 
 class eCajero : public EMPLEADO {
 public:
@@ -15,7 +16,7 @@ public:
     eCajero(string na, string dni, double ef, double app, double deb, double cr, string tel, string mail); //C
     ~eCajero(); //D
 
-    bool cobrar(CLIENTE c, bool ticketFisico);
+    double cobrar(CLIENTE c, FARMACIA f, bool ticketFisico);
 
 };
 

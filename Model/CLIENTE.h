@@ -19,14 +19,18 @@ public:
     const unsigned int nro;
     bool preferenciaTicketFisico;
     vector<PRODUCTO> carrito;
+    vector<unsigned int> cantidades;
+    metodoPago metP;
 
-    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf);//C
+    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP);//C
     ~CLIENTE(); //D
 
     bool pagar(double m, metodoPago metp);
     bool comprarGolosinas(pGolosinas g, unsigned int n);
     void set_nec(necesidadCliente n);
     necesidadCliente get_nec();
+    void set_metP(metodoPago MP);
+    metodoPago get_metP();
    
 
 };
