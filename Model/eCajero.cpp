@@ -21,13 +21,14 @@ eCajero::~eCajero() {
 double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
 
     double monto= 0.0;
-    double precio = 0.0;
+    
 
     //calculo el monto total
     for (int i = 0; i < c.carrito.size(); i++)
-    {
-        precio = c.carrito[i].get_precio();
-        monto = monto + precio * c.cantidades[i];
+    {        
+        if (c.carrito[i].get_descuento() < 100)
+            monto = monto + (c.carrito[i].get_precio()*(100-c.carrito[i].get_descuento())/100 )* c.cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
+
     }
 
     //llamo a la funcion pagar de cliente

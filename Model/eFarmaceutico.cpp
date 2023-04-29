@@ -27,6 +27,7 @@ bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<
         {
             c.carrito.push_back(m[i]); //agrego el medicamento
             c.cantidades.push_back(cant[i]); //agrego la cantidad que se quiere llevar
+            m[i].set_stock(m[i].get_stock() - cant[i]);//le resto al stock anterior del producto la cantidad que el cliente se lleva
         }
         else return false;
     }
