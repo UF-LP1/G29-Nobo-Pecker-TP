@@ -37,7 +37,9 @@ double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
                 case farmaciaOS:
                     break;//dejo el descuento como estaba 
                 case PAMI:{
-                    descuento = descuento * 2; //duplico el descuento
+                    if(descuento<50)
+                        descuento = descuento * 2; //duplico el descuento unicamente si el descuento es menor al 50% ya que de lo contrario restaria al monto
+                    //si el descuento ya es mayor al 50% queda igual para las personas con PAMI que para las de obra social
                     break;
                     }
                 case farmaciaP: {
@@ -45,9 +47,9 @@ double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
                 }
 
                 }
-            }
-        } //si no era medicamento directamente queda el descuento que ya estaba
+            } //si no era medicamento directamente queda el descuento que ya estaba
             monto = monto + (c.carrito[i].get_precio()*(100-descuento)/100 )* c.cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
+        } 
 
     }
 

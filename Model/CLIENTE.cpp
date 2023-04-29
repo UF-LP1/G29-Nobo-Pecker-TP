@@ -18,11 +18,12 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
     this->preferenciaTicketFisico = true;
     this->nec = nec;
     this->metP = metP;
-    //carrito
+
 }
 
 CLIENTE::~CLIENTE() { 
-
+    carrito.~vector();
+    cantidades.~vector();
 }
 
 
