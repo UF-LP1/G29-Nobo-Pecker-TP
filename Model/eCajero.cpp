@@ -45,18 +45,20 @@ double eCajero::cobrar(CLIENTE c, FARMACIA f, bool ticketFisico) {
             if (pagoCliente) break;
         }
     }
-    if (i == 4) return -1;
+    if (i == 4) return -1; //si no pudo pagar con ninguno de los otros metodos, devuelvo -1
 
-    //si sigo en la funcion (cobre) le sumo el monto a los fondos de farmacia
+    //si sigo en la funcion (ya cobre) le sumo el monto a los fondos de farmacia
     double nuevosFondos = f.get_fondos() + monto;
     f.set_fondos(nuevosFondos);
 
+    //segun la preferencia del ticket de la persona, imprimo en pantalla el monto o se lo envio por mail
     if (ticketFisico)
         cout << "El cliente pago: $" << monto;
     else
     {
         string mailC = get_mail();
         cout << "El ticket se envio por mail";
+        //enviar por mail
     }
     return monto;
 }

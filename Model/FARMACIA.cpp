@@ -58,7 +58,7 @@ double FARMACIA::get_fondos() {
 }
 
 bool FARMACIA::actualizarStock(PRODUCTO p, int n) {
+    //se llamaria a este metodo dentro de las funciones de vender
     //accedo a los productos que quiero tocar y  les sumo o resto n en stock
-    //devuelvo false si quiero restar mas de lo que hay, si no existe el producto, si hay nullptr
     return false;
 }

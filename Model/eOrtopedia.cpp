@@ -18,18 +18,18 @@ eOrtopedia::~eOrtopedia() {
 
 }
 
-bool eOrtopedia::venderProducto(CLIENTE c, vector<pOrtopedia> o, vector<unsigned int> cant) {
-    //recorro la lista de medicamentos que quiero comprar para ir agregandolos al carrito
+bool eOrtopedia::venderProducto(CLIENTE c, vector<pOrtopedia> o, vector<unsigned int> cant) { //analogo a las demas funciones de vender
+    
     for (int i = 0; i < o.size(); i++)
     {
-        if (o[i].get_stock() >= cant[i])
+        if (o[i].get_stock() >= cant[i]) //me fijo si hay stock 
         {
-            c.carrito.push_back(o[i]);
-            c.cantidades.push_back(cant[i]);
+            c.carrito.push_back(o[i]); //agrego el producto
+            c.cantidades.push_back(cant[i]); //agrego su cantidad
         }
         else return false;
     }
-    //si me pediste 27 pastillas pero entre ellas habia 2 ibuprofenos y yo tengo uno solo no te vendo y bueno...
+    
     return true;
     
 }

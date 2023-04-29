@@ -11,7 +11,7 @@
   */
 
 
-ASIST_AUTOM::ASIST_AUTOM() { //inicializo cantclientes en 0
+ASIST_AUTOM::ASIST_AUTOM() { 
     this->cantclientes = 0;
 }
 
@@ -19,7 +19,8 @@ ASIST_AUTOM::~ASIST_AUTOM() {
 
 }
 
-int ASIST_AUTOM::entregarTicket() { //incremento la cantidad de clientes en uno y devuelvo el numero anterior para asignarselo al cliente nuevo
+int ASIST_AUTOM::entregarTicket() { //este metodo se encarga de incrementar la cantidad total de clientes en uno y devolver el numero anterior a ese para asignarselo al cliente nuevo
+
     this->cantclientes++;
     return cantclientes-1 ;
 }

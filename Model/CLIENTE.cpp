@@ -21,7 +21,7 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
     //carrito
 }
 
-CLIENTE::~CLIENTE() {
+CLIENTE::~CLIENTE() { 
 
 }
 
@@ -60,6 +60,24 @@ void CLIENTE::set_app(double mP) {
 void CLIENTE::set_debito(double d) {
     this->debito = d;
     return;
+}
+
+void CLIENTE:: set_nec(necesidadCliente n) {
+    this-> nec = n;
+    return;
+}
+
+necesidadCliente CLIENTE:: get_nec() {
+    return this-> nec;
+}
+
+void CLIENTE::set_metP (metodoPago MP) {
+    this->metP = MP;
+    return;
+}
+
+metodoPago CLIENTE:: get_metP() {
+    return this->metP;
 }
 
 bool CLIENTE::pagar(double m, metodoPago metp) {
@@ -123,35 +141,17 @@ bool CLIENTE::pagar(double m, metodoPago metp) {
     return pagado;
 }
 
-bool CLIENTE::comprarGolosinas(vector<pGolosinas>g, vector<unsigned int >cant) {
+bool CLIENTE::comprarGolosinas(vector<pGolosinas>g, vector<unsigned int >cant) { //este metodo le permite al cliente agregar una lista de golosinas a su carrito 
    
     for (int i = 0; i < g.size(); i++)
     {
-        if (g[i].get_stock() >= cant[i])
+        if (g[i].get_stock() >= cant[i]) //siempre y cuando tenga stock
         {
-            this->carrito.push_back(g[i]);
-            this->cantidades.push_back(cant[i]);
+            this->carrito.push_back(g[i]); //agrego la golosina en el carrito (vector de productos)
+            this->cantidades.push_back(cant[i]); //agrego la cantidad de esa golosina que se lleva en el vector de cantidades
         }
         else return false;
     }
   
     return true;
-}
-
-void CLIENTE:: set_nec(necesidadCliente n) {
-    this-> nec = n;
-    return;
-}
-
-necesidadCliente CLIENTE:: get_nec() {
-    return this-> nec;
-}
-
-void CLIENTE::set_metP (metodoPago MP) {
-    this->metP = MP;
-    return;
-}
-
-metodoPago CLIENTE:: get_metP() {
-    return this->metP;
 }

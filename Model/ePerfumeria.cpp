@@ -18,17 +18,17 @@ ePerfumeria::~ePerfumeria() {
 
 }
 
-bool ePerfumeria::venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int>cant) {
-    //recorro la lista de medicamentos que quiero comprar para ir agregandolos al carrito
+bool ePerfumeria::venderProducto(CLIENTE c, vector<pPerfumeria> p, vector<unsigned int>cant) { //analogo a las demas funciones de vender
+    
     for (int i = 0; i < p.size(); i++)
     {
-        if (p[i].get_stock() >= cant[i])
+        if (p[i].get_stock() >= cant[i]) //si hay stock
         {
-            c.carrito.push_back(p[i]);
-            c.cantidades.push_back(cant[i]);
+            c.carrito.push_back(p[i]); //agrego el producto
+            c.cantidades.push_back(cant[i]); //agrego la cantidad que se lleva de ese producto
         }
         else return false;
     }
-    //si me pediste 27 pastillas pero entre ellas habia 2 ibuprofenos y yo tengo uno solo no te vendo y bueno...
+   
     return true;
 }
