@@ -37,4 +37,5 @@ bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<
 /*
             this->carrito.push_back(g[i]); //agrego la golosina en el carrito (vector de productos)
             this->cantidades.push_back(cant[i]); //agrego la cantidad de esa golosina que se lleva en el vector de cantidades
-            g[i].set_stock(g[i].get_stock() - cant[i]);*/
+            g[i].set_stock(g[i].get_stock() - cant[i]);
+*/
