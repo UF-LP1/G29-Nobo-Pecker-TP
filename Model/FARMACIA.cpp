@@ -56,9 +56,3 @@ string FARMACIA::get_horarioFinde() {
 double FARMACIA::get_fondos() {
     return this->fondos;
 }
-
-bool FARMACIA::actualizarStock(PRODUCTO p, int n) {
-    //se llamaria a este metodo dentro de las funciones de vender
-    //accedo a los productos que quiero tocar y  les sumo o resto n en stock
-    return false;
-}

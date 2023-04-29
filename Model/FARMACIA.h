@@ -23,7 +23,6 @@ public:
     string get_horarioSemana();
     string get_horarioFinde();
     double get_fondos();
-    bool actualizarStock(PRODUCTO p, int n);
 
 private:
     const string nombre;
