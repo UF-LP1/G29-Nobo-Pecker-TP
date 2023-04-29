@@ -49,11 +49,6 @@ int main() {
 
 	//construyo un cliente
 	CLIENTE cliente("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(),farmaciaP, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
-	//le creo un carrito y una lista de cantidades
-	vector<PRODUCTO> compra;
-	vector<unsigned int> cantidadesTotal;
-	cliente.carrito = compra;
-	cliente.cantidades = cantidadesTotal;
 	
 	//hago directamente los metodos de vender/pagar/cobrar y no el simulacro de farmacia entero porque nada mas estoy probando si funciona la parte de cobrar
 	
@@ -119,16 +114,6 @@ int main() {
 	farmaceutico.~eFarmaceutico();
 	cliente.~CLIENTE();
 	NoboPecker.~FARMACIA();
-	compra.~vector();
-	listaGolosinas.~vector();
-	listaPerfumeria.~vector();
-	listaOrtopedia.~vector();
-	listaMedicamentos.~vector();
-	cantidadesGolosinas.~vector();
-	cantidadesMedicamentos.~vector();
-	cantidadesOrtopedia.~vector();
-	cantidadesPerfumeria.~vector();
-	cantidadesTotal.~vector();
 
 	return 0;
 }
