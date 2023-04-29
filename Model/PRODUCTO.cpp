@@ -13,6 +13,7 @@ PRODUCTO::PRODUCTO(string n) :nombre(n) {
     this->stock = 0;
     this->precio = 0;
     this->descuento = 0;
+    this->es_medicamento = false;
 }
 
 PRODUCTO::~PRODUCTO() {
@@ -36,6 +37,10 @@ void PRODUCTO::set_descuento(unsigned int d) {
 
 unsigned int PRODUCTO::get_stock() {
     return this->stock;
+}
+
+bool PRODUCTO::get_es_medicamento() {
+    return this->es_medicamento;
 }
 
 double PRODUCTO::get_precio() {

@@ -17,6 +17,7 @@ public:
 
     pMedicamentos(string n, string d, bool vl);
     ~pMedicamentos();
+    
 };
 
 #endif //_PMEDICAMENTOS_H
