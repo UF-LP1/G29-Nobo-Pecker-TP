@@ -18,15 +18,15 @@ eFarmaceutico::~eFarmaceutico() {
 
 }
 
-bool eFarmaceutico::venderMedicamento(CLIENTE c, vector<pMedicamentos> m,vector<unsigned int> cant) { //analogo a las demas funciones de vender
+bool eFarmaceutico::venderMedicamento(CLIENTE *c, vector<pMedicamentos> m,vector<unsigned int> cant) { //analogo a las demas funciones de vender
     
     //recorro la lista de medicamentos que quiero comprar para ir agregandolos al carrito
     for (int i = 0; i < m.size(); i++)
     {   
         if (m[i].get_stock() >= cant[i]) //siempre y cuando tenga stock
         {
-            c.carrito.push_back(m[i]); //agrego el medicamento
-            c.cantidades.push_back(cant[i]); //agrego la cantidad que se quiere llevar
+            c->carrito.push_back(m[i]); //agrego el medicamento
+            c->cantidades.push_back(cant[i]); //agrego la cantidad que se quiere llevar
             m[i].set_stock(m[i].get_stock() - cant[i]);//le resto al stock anterior del producto la cantidad que el cliente se lleva
         }
         else return false;

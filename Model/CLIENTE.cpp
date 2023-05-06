@@ -10,7 +10,7 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA (na, dni, tel, mail), nro(nro) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float ef, float app, float deb, float cr, string tel, string mail, bool ptf, metodoPago metP) : PERSONA (na, dni, tel, mail), nro(nro) { 
     this->efectivo = ef;
     this->app = app;
     this->credito = cr;
@@ -27,38 +27,38 @@ CLIENTE::~CLIENTE() {
 }
 
 
-double CLIENTE::get_efectivo() {
+float CLIENTE::get_efectivo() {
     return this->efectivo;
 }
 
-double CLIENTE::get_app() {
+float CLIENTE::get_app() {
     return this->app;
 }
 
-double CLIENTE::get_debito() {
+float CLIENTE::get_debito() {
     return this->debito;
 }
 
-double CLIENTE::get_credito() {
+float CLIENTE::get_credito() {
     return this->credito;
 }
 
-void CLIENTE::set_efectivo(double e) {
+void CLIENTE::set_efectivo(float e) {
     this->efectivo = e;
     return;
 }
 
-void CLIENTE::set_credito(double cr) {
+void CLIENTE::set_credito(float cr) {
     this->credito = cr;
     return;
 }
 
-void CLIENTE::set_app(double mP) {
+void CLIENTE::set_app(float mP) {
     this->app = mP;
     return;
 }
 
-void CLIENTE::set_debito(double d) {
+void CLIENTE::set_debito(float d) {
     this->debito = d;
     return;
 }
@@ -81,9 +81,21 @@ metodoPago CLIENTE:: get_metP() {
     return this->metP;
 }
 
-bool CLIENTE::pagar(double m, metodoPago metp) {
+void CLIENTE:: set_prefTicket(bool PTF) {
+    this-> preferenciaTicketFisico = PTF;
+}
+
+unsigned int CLIENTE:: get_nro() {
+    return this->nro;
+}
+
+bool CLIENTE:: get_prefTicket() {
+    return this->preferenciaTicketFisico;
+}
+
+bool CLIENTE::pagar(float m, metodoPago metp) {
     
-    double billetera = 0.0;
+    float billetera = 0.0;
     bool pagado = false;
 
     //segun su metodo de pago, le resto el monto a lo que tiene en su billetera

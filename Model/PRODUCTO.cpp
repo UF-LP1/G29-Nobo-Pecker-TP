@@ -25,7 +25,7 @@ void PRODUCTO::set_stock(int n) {
     return;
 }
 
-void PRODUCTO::set_precio(double p) {
+void PRODUCTO::set_precio(float p) {
     this->precio = p;
     return;
 }
@@ -43,7 +43,7 @@ bool PRODUCTO::get_es_medicamento() {
     return this->es_medicamento;
 }
 
-double PRODUCTO::get_precio() {
+float PRODUCTO::get_precio() {
     return this->precio;
 }
 

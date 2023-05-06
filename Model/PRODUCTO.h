@@ -16,16 +16,16 @@ public:
 
    
     void set_stock(int n);
-    void set_precio(double p);
+    void set_precio(float p);
     void set_descuento(unsigned int d);
     unsigned int get_stock();
-    double get_precio();
+    float get_precio();
     unsigned int get_descuento();
     bool get_es_medicamento();
 protected:
     const string nombre;
     unsigned int stock;
-    double precio;
+    float precio;
     unsigned int descuento;
     bool es_medicamento; //para hacer descuentos por obra social <3
 

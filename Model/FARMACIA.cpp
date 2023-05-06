@@ -36,7 +36,7 @@ void FARMACIA::set_horarioFinde(string hf) {
     return;
 }
 
-void FARMACIA::set_fondos(double f) {
+void FARMACIA::set_fondos(float f) {
     this->fondos = f;
     return;
 }
@@ -53,6 +53,6 @@ string FARMACIA::get_horarioFinde() {
     return this->horarioFinde;
 }
 
-double FARMACIA::get_fondos() {
+float FARMACIA::get_fondos() {
     return this->fondos;
 }

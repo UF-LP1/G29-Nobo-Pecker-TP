@@ -9,7 +9,6 @@
 
 
 int main() {
-
 	//construyo nuestra farmacia
 	FARMACIA NoboPecker("NoboPecker"); 
 	NoboPecker.set_fondos(100000.0); 
@@ -48,7 +47,8 @@ int main() {
 	ASIST_AUTOM asistenteAutomatico;
 
 	//construyo un cliente
-	CLIENTE cliente("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(),farmaciaP, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
+	
+	CLIENTE *cliente = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), farmaciaP, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
 	
 	//hago directamente los metodos de vender/pagar/cobrar y no el simulacro de farmacia entero porque nada mas estoy probando si funciona la parte de cobrar
 	
@@ -96,24 +96,13 @@ int main() {
 	listaGolosinas.push_back(golosina);
 	vector<unsigned int> cantidadesGolosinas;
 	cantidadesGolosinas.push_back(1);
-	cliente.comprarGolosinas(listaGolosinas, cantidadesGolosinas);
+	cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
 
 	//ahora que tiene el carrito lleno va a ir a que le cobren
-	cajero.cobrar(cliente, NoboPecker, cliente.preferenciaTicketFisico);
+	cajero.cobrar(cliente, NoboPecker, cliente->get_prefTicket());
 
-	golosina.~pGolosinas();
-	productoPerfumeria2.~pPerfumeria();
-	productoPerfumeria1.~pPerfumeria();
-	productoOrtopedia.~pOrtopedia();
-	medicamento1.~pMedicamentos();
-	medicamento2.~pMedicamentos();
-	asistenteAutomatico.~ASIST_AUTOM();
-	cajero.~eCajero();
-	empleadoOrtopedia.~eOrtopedia();
-	empleadoPerfumeria.~ePerfumeria();
-	farmaceutico.~eFarmaceutico();
-	cliente.~CLIENTE();
-	NoboPecker.~FARMACIA();
+	delete cliente;
 
+	
 	return 0;
 }
