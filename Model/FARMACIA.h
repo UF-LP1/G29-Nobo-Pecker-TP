@@ -7,7 +7,7 @@
 #define _FARMACIA_H
 
 #include "EMPLEADO.h"
-#include "PRODUCTO.h"
+//#include "PRODUCTO.h"
 
 class FARMACIA {
 public:

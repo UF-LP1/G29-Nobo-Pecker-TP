@@ -7,7 +7,7 @@
 #define _EMPLEADO_H
 
 #include "PERSONA.h"
-
+#include "pPerfumeria.h"
 
 class EMPLEADO : public PERSONA {
 public:

@@ -6,7 +6,7 @@
 #ifndef _PORTOPEDIA_H
 #define _PORTOPEDIA_H
 
-#include "PRODUCTO.h"
+#include "pMedicamentos.h"
 #include "artOrtopedia.h"
 
 class pOrtopedia : public PRODUCTO {

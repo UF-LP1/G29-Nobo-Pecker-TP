@@ -6,7 +6,7 @@
 #ifndef _PPERFUMERIA_H
 #define _PPERFUMERIA_H
 
-#include "PRODUCTO.h"
+#include "pOrtopedia.h"
 #include "artPerfumeria.h"
 
 

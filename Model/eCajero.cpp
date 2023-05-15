@@ -30,7 +30,7 @@ float eCajero::cobrar(CLIENTE* c, FARMACIA f, bool ticketFisico) {
 
         if (descuento < 100)
         {
-            if (c->carrito[i].get_es_medicamento()) // el medicamento especifica cierto descuento que se aplica para personas con obra social, se duplica para personas con pami y se anula para farmacia particular
+            if (dynamic_cast <pMedicamentos*> (c->carrito[i]) != nullptr) // el medicamento especifica cierto descuento que se aplica para personas con obra social, se duplica para personas con pami y se anula para farmacia particular
             {
                 switch (c->get_nec())
                 {
@@ -58,18 +58,18 @@ float eCajero::cobrar(CLIENTE* c, FARMACIA f, bool ticketFisico) {
     bool pagoCliente = c->pagar(monto, MP);
 
     //si no llega a tener la plata suficiente en el metodo que eligio (no se pueden mezclar metodos de pago en mi farmacia), pruebo con los otros
-    int i = 0;
+    int j;
     metodoPago aux=(metodoPago)0;
     if (!pagoCliente)
     {
-        for (i = 0; i < 4; i++)
+        for (j = 0; j < 4; j++)
         {
-            aux=(metodoPago)i;
+            aux=(metodoPago)j;
             pagoCliente = c->pagar(monto, aux);
             if (pagoCliente) break;
         }
     }
-    if (i == 4) {
+    if (j == 4) {
         for (int l = 0; l < c->carrito.size(); l++) {
             c->carrito[l].set_stock(c->carrito[l].get_stock() + c->cantidades[l]);
         }
@@ -93,3 +93,13 @@ float eCajero::cobrar(CLIENTE* c, FARMACIA f, bool ticketFisico) {
     }
     return monto;
 }
+
+
+
+
+
+
+/*
+
+if(dynamic_cast<pMedicamento>(c->carrito)!=nullptr)
+*/
