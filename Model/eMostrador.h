@@ -1,6 +1,6 @@
 /**
  * Project Untitled
- */
+ //*/
 
 
 #ifndef _EMOSTRADOR_H
@@ -19,7 +19,7 @@ public:
 	eMostrador(string na, string dni, string tel, string mail);
 	~eMostrador();
 
-	tipoEmpleado atenderCliente(CLIENTE c);
+	tipoEmpleado atenderCliente(CLIENTE *c);
 
 };
 

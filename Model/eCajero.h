@@ -1,6 +1,6 @@
 /**
  * Project Untitled
- */
+ //*/
 
 
 #ifndef _ECAJERO_H
@@ -16,7 +16,7 @@ public:
     eCajero(string na, string dni, string tel, string mail); //C
     ~eCajero(); //D
 
-    double cobrar(CLIENTE c, FARMACIA f, bool ticketFisico);
+    float cobrar(CLIENTE *c, FARMACIA f, bool ticketFisico);
 
 };
 

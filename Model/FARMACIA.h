@@ -18,18 +18,18 @@ public:
     void set_direccion(string d);
     void set_horarioSemana(string hs);
     void set_horarioFinde(string hf);
-    void set_fondos(double f);
+    void set_fondos(float f);
     string get_direccion();
     string get_horarioSemana();
     string get_horarioFinde();
-    double get_fondos();
+    float get_fondos();
 
 private:
     const string nombre;
     string direccion;
     string horarioSemana;
     string horarioFinde;
-    double fondos;
+    float fondos;
 };
 
 #endif //_FARMACIA_H

@@ -1,6 +1,6 @@
 /**
  * Project Untitled
- */
+ //*/
 
 
 #ifndef _EFARMACEUTICO_H
@@ -20,7 +20,7 @@ public:
     eFarmaceutico(string na, string dni, tipoEmpleado f, string tel, string mail); //C
     ~eFarmaceutico(); //D
 
-    bool venderMedicamento(CLIENTE c, vector<pMedicamentos> m, vector<unsigned int> cant);
+    bool venderMedicamento(CLIENTE *c, vector<pMedicamentos> m, vector<unsigned int> cant);
 
 };
 

@@ -13,36 +13,42 @@
 
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
-public:
+private:
 
-    double efectivo;
-    double app;
-    double debito;
-    double credito;
+    float efectivo;
+    float app;
+    float debito;
+    float credito;
     necesidadCliente nec;
     const unsigned int nro;
     bool preferenciaTicketFisico;
-    vector<PRODUCTO> carrito;
-    vector<unsigned int> cantidades;
     metodoPago metP;
 
-    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, double ef, double app, double deb, double cr, string tel, string mail, bool ptf, metodoPago metP);//C
+public:
+
+    vector<PRODUCTO> carrito;
+    vector<unsigned int> cantidades;
+
+    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float ef, float app, float deb, float cr, string tel, string mail, bool ptf, metodoPago metP);//C
     ~CLIENTE(); //D
 
-    bool pagar(double m, metodoPago metp);
+    bool pagar(float m, metodoPago metp);
     bool comprarGolosinas(vector <pGolosinas> g, vector<unsigned int> cant);
     void set_nec(necesidadCliente n);
-    necesidadCliente get_nec();
     void set_metP(metodoPago MP);
+    void set_prefTicket(bool PFT);
+    necesidadCliente get_nec();
     metodoPago get_metP();
-    void set_efectivo(double e);
-    void set_app(double mP);
-    void set_credito(double cr);
-    void set_debito(double d);
-    double get_efectivo();
-    double get_app();
-    double get_debito();
-    double get_credito();
+    void set_efectivo(float e);
+    void set_app(float mP);
+    void set_credito(float cr);
+    void set_debito(float d);
+    float get_efectivo();
+    float get_app();
+    float get_debito();
+    float get_credito();
+    unsigned int get_nro();
+    bool get_prefTicket();
    
 
 };

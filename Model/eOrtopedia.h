@@ -1,6 +1,6 @@
 /**
  * Project Untitled
- */
+ //*/
 
 
 #ifndef _EORTOPEDIA_H
@@ -20,7 +20,7 @@ public:
     eOrtopedia(string na, string dni, tipoEmpleado o, string tel, string mail);
     ~eOrtopedia();
 
-    bool venderProducto(CLIENTE c, vector<pOrtopedia> o, vector<unsigned int> cant);
+    bool venderProducto(CLIENTE* c, vector<pOrtopedia> o, vector<unsigned int> cant);
 
 };
 
