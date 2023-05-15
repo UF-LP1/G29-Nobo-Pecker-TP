@@ -18,7 +18,7 @@ eCajero::~eCajero() {
 
 }
 
-float eCajero::cobrar(CLIENTE *c, FARMACIA f, bool ticketFisico) {
+float eCajero::cobrar(CLIENTE* c, FARMACIA f, bool ticketFisico) {
 
     float monto= 0.0;
     unsigned int descuento = 0;
