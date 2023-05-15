@@ -19,7 +19,7 @@ eMostrador::~eMostrador() {
 }
 
 tipoEmpleado eMostrador::atenderCliente(CLIENTE* c) { //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
-    tipoEmpleado necesidad;
+    tipoEmpleado necesidad= tipoEmpleado(0);
     necesidadCliente actual= c->get_nec();
     
     switch (actual)
