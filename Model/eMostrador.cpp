@@ -18,9 +18,35 @@ eMostrador::~eMostrador() {
 
 }
 
-tipoEmpleado eMostrador::atenderCliente(CLIENTE* c) {
-    //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
-    //EN EL MAIN ME VOY FIJANDO QUE VAYA ATENDIENDO POR NUMERO
-    tipoEmpleado t=farmaceutico_; //inicializo para que no me moleste pero cuando lo implemente va a ser segun la necesidad
-    return t;
+tipoEmpleado eMostrador::atenderCliente(CLIENTE* c) { //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
+    tipoEmpleado necesidad;
+    necesidadCliente actual= c->get_nec();
+    
+    switch (actual)
+    {
+    case farmaciaOS: {
+        necesidad = farmaceutico_;
+        break;
+    }
+    case farmaciaP: {
+        necesidad = farmaceutico_;
+        break;
+    }
+    case PAMI: {
+        necesidad = farmaceutico_;
+        break;
+    }
+    case perfumeria: {
+        necesidad = perfumeria_;
+        break;
+    }
+    case ortopedia: {
+        necesidad = ortopedia_;
+        break;
+    }
+    default:
+        break;
+    }
+    
+    return necesidad;
 }
