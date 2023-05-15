@@ -9,6 +9,7 @@
 
 
 int main() {
+	/*
 	//construyo nuestra farmacia
 	FARMACIA NoboPecker("NoboPecker"); 
 	NoboPecker.set_fondos(100000.0); 
@@ -105,4 +106,5 @@ int main() {
 
 	
 	return 0;
+	*/
 }
