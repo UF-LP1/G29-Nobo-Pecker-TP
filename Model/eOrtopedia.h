@@ -6,13 +6,13 @@
 #ifndef _EORTOPEDIA_H
 #define _EORTOPEDIA_H
 
-#include "EMPLEADO.h"
+#include "VENDEDOR.h"
 #include "CLIENTE.h"
 #include "tipoEmpleado.h"
 #include "pOrtopedia.h"
 
 
-class eOrtopedia : public EMPLEADO {
+class eOrtopedia : public VENDEDOR {
 public:
 
     const tipoEmpleado o;
@@ -20,7 +20,7 @@ public:
     eOrtopedia(string na, string dni, tipoEmpleado o, string tel, string mail);
     ~eOrtopedia();
 
-    bool venderProducto(CLIENTE* c, vector<pOrtopedia> o, vector<unsigned int> cant);
+    bool vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant);
 
 };
 
