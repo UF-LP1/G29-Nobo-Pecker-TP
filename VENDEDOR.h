@@ -1,7 +1,9 @@
 #pragma once
-#include "EMPLEADO.h"
+#include "Model/EMPLEADO.h"
+#include "Model/PERSONA.h"
 
 class VENDEDOR : public EMPLEADO{
-
+public:
+		
 };
 
