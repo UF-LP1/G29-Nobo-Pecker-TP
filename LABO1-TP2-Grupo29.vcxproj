@@ -150,6 +150,7 @@
     <ClInclude Include="Model\PRODUCTO.h" />
     <ClInclude Include="Model\RECETA.h" />
     <ClInclude Include="Model\tipoEmpleado.h" />
+    <ClInclude Include="VENDEDOR.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Model\ASIST_AUTOM.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="Model\PRODUCTO.cpp" />
     <ClCompile Include="Model\RECETA.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="VENDEDOR.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
