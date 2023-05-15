@@ -97,9 +97,3 @@ float eCajero::cobrar(CLIENTE* c, FARMACIA f, bool ticketFisico) {
 
 
 
-
-
-/*
-
-if(dynamic_cast<pMedicamento>(c->carrito)!=nullptr)
-*/
