@@ -10,7 +10,7 @@ public:
   bool vender(CLIENTE* cliente, vector<PRODUCTO> productos, vector<unsigned int>cant);
 };
 
-inline VENDEDOR::VENDEDOR(string na, string dni, string tel, string mail): EMPLEADO(na, dni, tel, mail) {}
+inline VENDEDOR::VENDEDOR(string na, string dni, string tel, string mail) : EMPLEADO(na, dni, tel, mail) {}
 
 inline VENDEDOR::~VENDEDOR() {}
 
