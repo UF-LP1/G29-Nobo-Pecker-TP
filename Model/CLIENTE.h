@@ -11,7 +11,7 @@
 #include "metodoPago.h"
 #include "pGolosinas.h"
 #include <array>
-#define tam 3
+#define tam 3 
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
 private:
