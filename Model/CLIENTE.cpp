@@ -16,10 +16,12 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
     this->credito = credito;
     this->debito = debito;
     this->preferenciaTicketFisico = true;
-    this->necesidad = nec;
     this->metP = metPago;
     this->carrito = vector<PRODUCTO>(carrito.begin(), carrito.end());
     this->cantidades = vector<unsigned int>(cantidades.begin(), cantidades.end());
+    for (int i = 0; i < 3; i++)
+        this->necesidad[i] = necesidadCliente(0);
+ 
 }
 
 CLIENTE::~CLIENTE() { 
@@ -63,12 +65,13 @@ void CLIENTE::set_debito(float debito) {
     return;
 }
 
-void CLIENTE:: set_nec(necesidadCliente necesidad) {
-    this-> necesidad = necesidad;
+void CLIENTE:: set_nec(necesidadCliente* necesidad) {
+    for (int i = 0; i < 3; i++)
+        this->necesidad[i] = necesidad[i];
     return;
 }
 
-necesidadCliente CLIENTE:: get_nec() {
+array<necesidadCliente,tam> CLIENTE:: get_nec() {
     return this-> necesidad;
 }
 
