@@ -17,7 +17,7 @@ pMedicamentos::~pMedicamentos() {
 }
 
 
-unsigned int pMedicamentos:: descuento_total(CLIENTE* cliente) {
+unsigned int pMedicamentos:: descuento_total(array<necesidadCliente,3> necesidades) {
 	bool halleFarmacia = false;
 	unsigned int descuento;
 	for (int i = 0; i < 3; i++) {

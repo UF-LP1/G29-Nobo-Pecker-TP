@@ -71,7 +71,7 @@ void CLIENTE:: set_nec(necesidadCliente* necesidad) {
     return;
 }
 
-array<necesidadCliente,tam> CLIENTE:: get_nec() {
+array<necesidadCliente,3> CLIENTE:: get_nec() {
     return this-> necesidad;
 }
 
