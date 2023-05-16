@@ -57,6 +57,7 @@ int main() {
 	//construyo un cliente
 
 	array<necesidadCliente, 3> necesidades;
+	necesidades = generarNecesidades();
 	
 	CLIENTE *cliente = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), necesidades, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
 	
