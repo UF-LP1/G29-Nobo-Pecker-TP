@@ -18,6 +18,7 @@ public:
     pMedicamentos(string n, string desc, bool vl);
     ~pMedicamentos();
     
+    unsigned int descuento_total(CLIENTE* cliente);
 };
 
 #endif //_PMEDICAMENTOS_H
