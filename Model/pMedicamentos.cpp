@@ -19,17 +19,19 @@ pMedicamentos::~pMedicamentos() {
 
 
 unsigned int pMedicamentos:: descuento_total(CLIENTE* cliente) {
-	
-	for (int i = 0; i < size; i++) {
-		unsigned int descuento;
-		// el medicamento especifica cierto descuento que se aplica para personas con obra social, se duplica para personas con pami (solo si es menor al 50%) y se anula para farmacia particular
+	bool halleFarmacia = false;
+	unsigned int descuento;
+	for (int i = 0; i < 3; i++) {
+// el medicamento especifica cierto descuento que se aplica para personas con obra social, se duplica para personas con pami (solo si es menor al 50%) y se anula para farmacia particular
 		switch (cliente->get_nec()[i]) {
 		case farmaciaOS: {
 			descuento = this->descuento;
+			halleFarmacia = true;
 			break;
 		}
 		case farmaciaP: {
 			descuento = 0;
+			halleFarmacia = true;
 			break;
 		}
 		case PAMI: {
@@ -37,13 +39,16 @@ unsigned int pMedicamentos:: descuento_total(CLIENTE* cliente) {
 				descuento = this->descuento * 2;
 			else
 				descuento = this->descuento;
+			halleFarmacia = true;
 			break;
 		}
 		default:
 			break;
 		}
+		if (halleFarmacia)
+			break;
 	}
-	
+	return descuento;
 
 }
 //farmaciaOS, farmaciaP, PAMI, perfumeria, ortopedia
