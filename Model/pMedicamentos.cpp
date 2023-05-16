@@ -51,7 +51,7 @@ unsigned int pMedicamentos:: descuento_total(CLIENTE* cliente) {
 	return descuento;
 
 }
-//farmaciaOS, farmaciaP, PAMI, perfumeria, ortopedia
+
 
 
 
