@@ -22,7 +22,7 @@ unsigned int pMedicamentos:: descuento_total(array<necesidadCliente,3> necesidad
 	unsigned int descuento;
 	for (int i = 0; i < 3; i++) {
 // el medicamento especifica cierto descuento que se aplica para personas con obra social, se duplica para personas con pami (solo si es menor al 50%) y se anula para farmacia particular
-		switch (cliente->get_nec()[i]) {
+		switch (necesidades[i]) {
 		case farmaciaOS: {
 			descuento = this->descuento;
 			halleFarmacia = true;

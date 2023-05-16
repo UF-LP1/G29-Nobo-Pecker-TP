@@ -18,9 +18,9 @@ eMostrador::~eMostrador() {
 
 }
 
-tipoEmpleado eMostrador::atenderCliente(CLIENTE* c) { //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
-    tipoEmpleado necesidad= tipoEmpleado(0);
-    necesidadCliente actual= c->get_nec();
+tipoEmpleado eMostrador::atenderCliente(CLIENTE* cliente, unsigned int nroNecesidad) { //accede a la necesidad del cliente y segun eso devuelve un tipo de empleado
+    tipoEmpleado necesidad= tipoEmpleado(0); 
+    necesidadCliente actual = cliente->get_nec()[nroNecesidad]; //segun la vez que entre en esta funcion me fijo su necesidad
     
     switch (actual)
     {
