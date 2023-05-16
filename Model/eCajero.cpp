@@ -20,7 +20,8 @@ eCajero::~eCajero() {
 
 float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
 
-    float monto= 0.0;
+    /*
+    float monto = 0.0;
     unsigned int descuento = 0;
 
     //calculo el monto total
@@ -99,6 +100,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
         //enviar por mail
     }
     return monto;
+    */
 }
 
 
