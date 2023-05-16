@@ -8,6 +8,7 @@
 
 #include "PERSONA.h"
 #include "necesidadCliente.h"
+#include <array>
 
 
 class PRODUCTO {
