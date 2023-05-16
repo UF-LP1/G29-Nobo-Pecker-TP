@@ -18,7 +18,7 @@ ePerfumeria::~ePerfumeria() {
 
 }
 
-bool vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant) {
+bool ePerfumeria:: vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant) {
 
 	//recorro el vector de productos y de cantidades y lo agrego al carrito del cliente
 

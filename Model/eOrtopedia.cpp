@@ -17,7 +17,7 @@ eOrtopedia::eOrtopedia(string na, string dni, tipoEmpleado o, string tel, string
 eOrtopedia::~eOrtopedia() {
 
 }
-bool vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant) {
+bool eOrtopedia:: vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant) {
 
 	//recorro el vector de productos y de cantidades y lo agrego al carrito del cliente
 
