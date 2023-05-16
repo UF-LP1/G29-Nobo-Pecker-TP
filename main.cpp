@@ -64,7 +64,7 @@ int main() {
 	for (int a = 0; a < 3; a++)
 	{	
 		tipoEmpleado empleadoActual = empleadoMostrador.atenderCliente(cliente, a);
-		if (empleadoActual == unspecified)
+		if (empleadoActual == unspecifiedTE)
 			break;
 		vector<PRODUCTO> productos;
 		vector<unsigned int> cantidades;
