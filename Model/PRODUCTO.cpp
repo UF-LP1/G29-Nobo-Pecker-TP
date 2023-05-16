@@ -51,8 +51,7 @@ unsigned int PRODUCTO::get_descuento() {
     return this->descuento;
 }
 
-unsigned int PRODUCTO::descuento_total(CLIENTE* cliente) {
-    for (int i = 0; i < cliente->carrito.size; i++) {
-
-   }
+unsigned int PRODUCTO::descuento_total(CLIENTE* cliente) { //para ortopedia y perfumeria es unicamente el descuento propio del producto
+                                                            //en medicamentos la redefinimos para que se fije si tiene obra social, pami o si es particular
+    return this->descuento;
 }
