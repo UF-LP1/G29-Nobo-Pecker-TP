@@ -21,7 +21,6 @@ public:
     unsigned int get_stock();
     float get_precio();
     unsigned int get_descuento();
-    bool get_es_medicamento();
     virtual unsigned int descuento_total(CLIENTE* cliente);
 
 protected:
@@ -29,7 +28,6 @@ protected:
     unsigned int stock;
     float precio;
     unsigned int descuento;
-    bool es_medicamento; //para hacer descuentos por obra social <3
 
 };
 
