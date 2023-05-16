@@ -8,7 +8,7 @@
 #include "PRODUCTO.h"
 #include "metodoPago.h"
 #include "pGolosinas.h"
-#include <array>
+
  
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
