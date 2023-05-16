@@ -6,7 +6,9 @@
 #ifndef _PRODUCTO_H
 #define _PRODUCTO_H
 
-#include "CLIENTE.h"
+#include "PERSONA.h"
+#include "necesidadCliente.h"
+
 
 class PRODUCTO {
 public:
@@ -21,7 +23,7 @@ public:
     unsigned int get_stock();
     float get_precio();
     unsigned int get_descuento();
-    virtual unsigned int descuento_total(CLIENTE* cliente);
+    virtual unsigned int descuento_total(array<necesidadCliente, 3> necesidades);
 
 protected:
    
