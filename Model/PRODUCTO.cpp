@@ -50,3 +50,9 @@ float PRODUCTO::get_precio() {
 unsigned int PRODUCTO::get_descuento() {
     return this->descuento;
 }
+
+unsigned int PRODUCTO::descuento_total(CLIENTE* cliente) {
+    for (int i = 0; i < cliente->carrito.size; i++) {
+
+   }
+}
