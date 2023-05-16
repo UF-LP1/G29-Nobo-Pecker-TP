@@ -20,7 +20,7 @@ public:
     eFarmaceutico(string na, string dni, tipoEmpleado f, string tel, string mail); //C
     ~eFarmaceutico(); //D
 
-    bool vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant);
+   
   
 
 };

@@ -20,8 +20,7 @@ public:
     eOrtopedia(string na, string dni, tipoEmpleado o, string tel, string mail);
     ~eOrtopedia();
 
-    bool vender(CLIENTE* cliente, vector <PRODUCTO> productos, vector <unsigned int> cant);
-
+    
 };
 
 #endif //_EORTOPEDIA_H
