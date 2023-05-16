@@ -15,7 +15,7 @@ public:
     const bool ventaLibre;
     const string descripcion;
 
-    pMedicamentos(string n, string d, bool vl);
+    pMedicamentos(string n, string desc, bool vl);
     ~pMedicamentos();
     
 };

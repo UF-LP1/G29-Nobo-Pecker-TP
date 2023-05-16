@@ -17,3 +17,10 @@ eLimpieza::eLimpieza(string na, string dni, string tel, string mail) : EMPLEADO(
 eLimpieza::~eLimpieza() {
 
 }
+
+void limpiar(FARMACIA farmacia) {
+	if (!(farmacia.get_limpio())) {
+		farmacia.set_limpio(true);
+	}
+	return;
+}

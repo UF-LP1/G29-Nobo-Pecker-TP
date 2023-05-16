@@ -19,13 +19,13 @@ EMPLEADO::~EMPLEADO() {
 
 }
 
-void EMPLEADO::set_sueldo(double s) {
-    this->sueldo = s;
+void EMPLEADO::set_sueldo(double sueldo) {
+    this->sueldo = sueldo;
     return;
 }
 
-void EMPLEADO::set_horariosTrabajo(string hT) {
-    this->horariosTrabajo = hT;
+void EMPLEADO::set_horariosTrabajo(string horarioT) {
+    this->horariosTrabajo = horarioT;
     return;
 }
 

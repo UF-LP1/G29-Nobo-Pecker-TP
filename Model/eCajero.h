@@ -16,7 +16,7 @@ public:
     eCajero(string na, string dni, string tel, string mail); //C
     ~eCajero(); //D
 
-    float cobrar(CLIENTE *c, FARMACIA f, bool ticketFisico);
+    float cobrar(CLIENTE *cliente, FARMACIA farmacia, bool ticketFisico);
 
 };
 

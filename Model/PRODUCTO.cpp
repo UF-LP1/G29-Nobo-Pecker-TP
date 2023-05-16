@@ -25,13 +25,13 @@ void PRODUCTO::set_stock(int n) {
     return;
 }
 
-void PRODUCTO::set_precio(float p) {
-    this->precio = p;
+void PRODUCTO::set_precio(float precio) {
+    this->precio = precio;
     return;
 }
 
-void PRODUCTO::set_descuento(unsigned int d) {
-    this->descuento = d;
+void PRODUCTO::set_descuento(unsigned int descuento) {
+    this->descuento = descuento;
     return;
 }
 

@@ -9,7 +9,7 @@
   * pMedicamentos implementation
   */
 
-pMedicamentos::pMedicamentos(string n, string d, bool vl) : PRODUCTO(n), ventaLibre(vl), descripcion(d) {
+pMedicamentos::pMedicamentos(string n, string desc, bool vl) : PRODUCTO(n), ventaLibre(vl), descripcion(desc) {
 	this->es_medicamento = true;
 }
 

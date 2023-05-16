@@ -19,7 +19,7 @@ private:
     float app;
     float debito;
     float credito;
-    necesidadCliente nec;
+    necesidadCliente necesidad;
     const unsigned int nro;
     bool preferenciaTicketFisico;
     metodoPago metP;
@@ -29,20 +29,20 @@ public:
     vector<PRODUCTO> carrito;
     vector<unsigned int> cantidades;
 
-    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float ef, float app, float deb, float cr, string tel, string mail, bool ptf, metodoPago metP);//C
+    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago);//C
     ~CLIENTE(); //D
 
-    bool pagar(float m, metodoPago metp);
-    bool comprarGolosinas(vector <pGolosinas> g, vector<unsigned int> cant);
-    void set_nec(necesidadCliente n);
-    void set_metP(metodoPago MP);
-    void set_prefTicket(bool PFT);
+    bool pagar(float monto, metodoPago metPago);
+    bool comprarGolosinas(vector <pGolosinas> golosinas, vector<unsigned int> cant);
+    void set_nec(necesidadCliente necesidad);
+    void set_metP(metodoPago metPago);
+    void set_prefTicket(bool prefTicketFisico);
     necesidadCliente get_nec();
     metodoPago get_metP();
-    void set_efectivo(float e);
-    void set_app(float mP);
-    void set_credito(float cr);
-    void set_debito(float d);
+    void set_efectivo(float efectivo);
+    void set_app(float app);
+    void set_credito(float credito);
+    void set_debito(float debito);
     float get_efectivo();
     float get_app();
     float get_debito();

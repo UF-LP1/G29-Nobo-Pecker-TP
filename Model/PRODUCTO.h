@@ -14,16 +14,16 @@ public:
     PRODUCTO(string n);
     ~PRODUCTO();
 
-   
+    const string nombre;
     void set_stock(int n);
-    void set_precio(float p);
-    void set_descuento(unsigned int d);
+    void set_precio(float precio);
+    void set_descuento(unsigned int descuento);
     unsigned int get_stock();
     float get_precio();
     unsigned int get_descuento();
     bool get_es_medicamento();
 protected:
-    const string nombre;
+   
     unsigned int stock;
     float precio;
     unsigned int descuento;

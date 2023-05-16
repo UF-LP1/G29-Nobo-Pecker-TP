@@ -15,8 +15,8 @@ public:
     EMPLEADO(string na, string dni, string tel, string mail);
     ~EMPLEADO();
 
-    void set_sueldo(double s);
-    void set_horariosTrabajo(string hT);
+    void set_sueldo(double sueldo);
+    void set_horariosTrabajo(string horarioT);
     double get_sueldo();
     string get_horariosTrabajo();
 protected:
