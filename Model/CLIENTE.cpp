@@ -20,7 +20,7 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
     this->carrito = vector<PRODUCTO>(carrito.begin(), carrito.end());
     this->cantidades = vector<unsigned int>(cantidades.begin(), cantidades.end());
     for (int i = 0; i < 3; i++)
-        this->necesidad[i] = necesidadCliente(0);
+        this->necesidad[i] = necesidadCliente(5); //unspecified
  
 }
 
