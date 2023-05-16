@@ -10,7 +10,8 @@
 #include "necesidadCliente.h"
 #include "metodoPago.h"
 #include "pGolosinas.h"
-
+#include <array>
+#define size 3
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
 private:
@@ -19,7 +20,7 @@ private:
     float app;
     float debito;
     float credito;
-    necesidadCliente necesidad;
+    array<necesidadCliente, size> necesidad;
     const unsigned int nro;
     bool preferenciaTicketFisico;
     metodoPago metP;
