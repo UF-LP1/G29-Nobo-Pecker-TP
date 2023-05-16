@@ -4,13 +4,13 @@
 #include "Model/eOrtopedia.h"
 #include "Model/eMostrador.h"
 #include "Model/ePerfumeria.h"
+#include "Model/eLimpieza.h"
 #include "Model/FARMACIA.h"
 
 
 
 int main() {
 
-	/*
 	//construyo nuestra farmacia
 	FARMACIA NoboPecker("NoboPecker");
 	NoboPecker.set_fondos(100000.0);
@@ -20,6 +20,8 @@ int main() {
 	eFarmaceutico farmaceutico("Pepe_Gomez", "20987123", farmaceutico_, "2235448027", "pepegomez@yahoo.com");
 	ePerfumeria empleadoPerfumeria("Susana_Oria", "2098777", perfumeria_, "2235448090", "susioria@hotmail.com");
 	eOrtopedia empleadoOrtopedia("Esteban_Quito", "17987122", ortopedia_, "2238888020", "estebiquito@yahoo.com");
+	eMostrador empleadoMostrador("Alma Marquez", "44111222", "232446662", "almamarquez2003@gmail.com");
+	eLimpieza empleadoLimpieza("Lorenzo Mazzante", "44555666", "233444222", "lorenmazzante@gmail.com");
 
 
 	//construyo los productos
@@ -42,63 +44,77 @@ int main() {
 	pMedicamentos medicamento2("Actron", "dolor_muscular", true);
 	medicamento2.set_precio(600.0);
 	medicamento2.set_stock(100);
-	pGolosinas golosina("chocolate_blanco", chocolate);
-	golosina.set_precio(150.0);
-	golosina.set_stock(50);
+	pGolosinas golosina1("chocolate_blanco", chocolate);
+	golosina1.set_precio(150.0);
+	golosina1.set_stock(50);
+	pGolosinas golosina2("chupetin_frutilla", chupetin);
+	golosina2.set_precio(100.0);
+	golosina2.set_stock(5);
 
 	//construyo el asistente automatico
 	ASIST_AUTOM asistenteAutomatico;
 
 	//construyo un cliente
-	
-	CLIENTE *cliente = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), farmaciaP, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
-	
-	//hago directamente los metodos de vender/pagar/cobrar y no el simulacro de farmacia entero porque nada mas estoy probando si funciona la parte de cobrar
-	
-	//primero se venden los productos de perfumeria y ortopedia para que en la funcion cobrar no se pierda el descuento de la obra social/PAMI si llega a tener uno
-	//para el proximo TP estaria bueno consultar si podemos hacer un vector de necesidad del cliente para no tener que cambiar el orden con el que la persona compra los productos
-	
-	//agrego las vendas a una lista de productos de ortopedia
-	vector<pOrtopedia> listaOrtopedia;
-	listaOrtopedia.push_back(productoOrtopedia);
-	//agrego la cantidad de vendas que quiere a una lista de cantidades
-	vector<unsigned int> cantidadesOrtopedia;
-	cantidadesOrtopedia.push_back(1);
-	//el empleado de ortopedia me las vende
-	empleadoOrtopedia.venderProducto(cliente, listaOrtopedia, cantidadesOrtopedia);
-	
-	//aca se le preguntaria al cliente si desea agregar algo mas al carrito y segun lo que conteste hacer un set de necesidadCliente para redirigirlo a otra seccion de la farmacia y que siga comprando
-	//pero como no es necesario para la funcion cobrar lo vamos a implementar cuando hagamos el simulacro entero
 
-	//agrego los productos de perfumeria a una lista
-	vector<pPerfumeria> listaPerfumeria;
-	listaPerfumeria.push_back(productoPerfumeria1);
-	listaPerfumeria.push_back(productoPerfumeria2);
-	//agrego la cantidad que quiere de cada uno a una lista de cantidades
-	vector<unsigned int> cantidadesPerfumeria;
-	cantidadesPerfumeria.push_back(1);
-	cantidadesPerfumeria.push_back(3);
-	//el empleado de perfumeria me las vende
-	empleadoPerfumeria.venderProducto(cliente, listaPerfumeria, cantidadesPerfumeria);
-
-	//''
+	array<necesidadCliente, 3> necesidades;
 	
-	//agrego los medicamentos a una lista de medicamentos
-	vector<pMedicamentos> listaMedicamentos;
-	listaMedicamentos.push_back(medicamento1);
-	listaMedicamentos.push_back(medicamento2);
-	//agrego la cantidad que quiere de cada uno a una lista de cantidades
-	vector<unsigned int> cantidadesMedicamentos;
-	cantidadesMedicamentos.push_back(1);
-	cantidadesMedicamentos.push_back(1);
-	//el farmaceutico me los vende
-	farmaceutico.venderMedicamento(cliente, listaMedicamentos, cantidadesMedicamentos);
+	CLIENTE *cliente = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), necesidades, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
+	
+	for (int a = 0; a < 3; a++)
+	{	
+		tipoEmpleado empleadoActual = empleadoMostrador.atenderCliente(cliente, a);
+		if (empleadoActual == unspecified)
+			break;
+		vector<PRODUCTO> productos;
+		vector<unsigned int> cantidades;
+		switch (empleadoActual)
+		{
+		case farmaceutico_:{
+			//agrego los medicamentos a la lista de productos que quiero agregar al carrito
+			productos.push_back(medicamento1);
+			productos.push_back(medicamento2);
+			//agrego la cantidad que quiere de cada uno a la lista de cantidades
+			cantidades.push_back(1);
+			cantidades.push_back(1);
+			//el farmaceutico me los vende
+			farmaceutico.vender(cliente, productos, cantidades);
 
-	//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate asi que se va a comprar un chocolate
+			break;
+			}
+		case perfumeria_: {
+			//agrego los productos de perfumeria a la lista de productos que quiero agregar al carrito
+			productos.push_back(productoPerfumeria1);
+			productos.push_back(productoPerfumeria2);
+			//agrego la cantidad que quiere de cada uno a la lista de cantidades
+			cantidades.push_back(1);
+			cantidades.push_back(3);
+			//el empleado de perfumeria me las vende
+			empleadoPerfumeria.vender(cliente, productos, cantidades);
+
+			break;
+		}
+		case ortopedia_: {
+			//agrego las vendas a la lista de productos que quiero agregar al carrito
+			productos.push_back(productoOrtopedia);
+			//agrego la cantidad de vendas que quiere a la lista de cantidades
+			cantidades.push_back(1);
+			//el empleado de ortopedia me las vende
+			empleadoOrtopedia.vender(cliente, productos, cantidades);
+
+			break;
+		}
+		default: break;
+		}
+
+	}
+
+	//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
 	vector<pGolosinas> listaGolosinas;
-	listaGolosinas.push_back(golosina);
+	listaGolosinas.push_back(golosina1);
+	listaGolosinas.push_back(golosina2);
 	vector<unsigned int> cantidadesGolosinas;
 	cantidadesGolosinas.push_back(1);
+	cantidadesGolosinas.push_back(3);
 	cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
 
 	//ahora que tiene el carrito lleno va a ir a que le cobren
@@ -106,7 +122,10 @@ int main() {
 
 	delete cliente;
 
-	
+	//pero antes de cerrar la farmacia hay que limpiarla 
+	empleadoLimpieza.limpiar(NoboPecker);
+
+	//ahora si se cierra la farmacia
+
 	return 0;
-	*/
 }

@@ -28,7 +28,7 @@ public:
     vector<PRODUCTO> carrito;
     vector<unsigned int> cantidades;
 
-    CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago);//C
+    CLIENTE(string na, string dni, unsigned int nro, array<necesidadCliente,3> nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago);//C
     ~CLIENTE(); //D
 
     bool pagar(float monto, metodoPago metPago);

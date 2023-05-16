@@ -15,6 +15,7 @@ FARMACIA::FARMACIA(string n) :nombre(n) {
     this->horarioSemana = '0';
     this->horarioFinde = '0';
     this->fondos = 0.0;
+    this->limpio = false; 
 }
 
 FARMACIA::~FARMACIA() {

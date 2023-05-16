@@ -10,7 +10,7 @@
   */
 
 
-CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago) : PERSONA (na, dni, tel, mail), nro(nro) { 
+CLIENTE::CLIENTE(string na, string dni, unsigned int nro, array<necesidadCliente,3> nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago) : PERSONA (na, dni, tel, mail), nro(nro) { 
     this->efectivo = efectivo;
     this->app = app;
     this->credito = credito;
@@ -20,7 +20,7 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, necesidadCliente nec, 
     this->carrito = vector<PRODUCTO>(carrito.begin(), carrito.end());
     this->cantidades = vector<unsigned int>(cantidades.begin(), cantidades.end());
     for (int i = 0; i < 3; i++)
-        this->necesidad[i] = necesidadCliente(5); //unspecified
+        this->necesidad[i] = nec[i]; //unspecified
  
 }
 
