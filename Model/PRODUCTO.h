@@ -22,6 +22,8 @@ public:
     float get_precio();
     unsigned int get_descuento();
     bool get_es_medicamento();
+    virtual unsigned int descuento_total(CLIENTE* cliente);
+
 protected:
    
     unsigned int stock;
