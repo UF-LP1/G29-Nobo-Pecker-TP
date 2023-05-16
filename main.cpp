@@ -9,16 +9,23 @@
 
 
 int main() {
-	/*
+
 	//construyo nuestra farmacia
-	FARMACIA NoboPecker("NoboPecker"); 
-	NoboPecker.set_fondos(100000.0); 
+	FARMACIA NoboPecker("NoboPecker");
+	NoboPecker.set_fondos(100000.0);
 
 	//construyo los empleados
 	eCajero cajero("Gonzalo_Gutierres", "21355422", "2477352317", "gonzalogutierres@gmail.com");
-	eFarmaceutico farmaceutico("Pepe_Gomez", "20987123",farmaceutico_, "2235448027", "pepegomez@yahoo.com");
+	eFarmaceutico farmaceutico("Pepe_Gomez", "20987123", farmaceutico_, "2235448027", "pepegomez@yahoo.com");
 	ePerfumeria empleadoPerfumeria("Susana_Oria", "2098777", perfumeria_, "2235448090", "susioria@hotmail.com");
-	eOrtopedia empleadoOrtopedia("Esteban_Quito", "17987122",ortopedia_ ,"2238888020", "estebiquito@yahoo.com");
+	eOrtopedia empleadoOrtopedia("Esteban_Quito", "17987122", ortopedia_, "2238888020", "estebiquito@yahoo.com");
+
+
+	/*
+	 
+
+	
+	
 
 	//construyo los productos
 	//por default los decuentos se inicializan en 0 como los demas atributos, asi que los productos que no tienen un set descuento es porque no tienen descuento
