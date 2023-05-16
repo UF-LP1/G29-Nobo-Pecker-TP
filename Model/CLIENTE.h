@@ -5,13 +5,11 @@
 
 #ifndef _CLIENTE_H
 #define _CLIENTE_H
-
-#include "PERSONA.h"
-#include "necesidadCliente.h"
+#include "PRODUCTO.h"
 #include "metodoPago.h"
 #include "pGolosinas.h"
 #include <array>
-#define tam 3 
+ 
 
 class CLIENTE : public PERSONA { //ME FALTA EL ATRIBUTO CARRITO QUE ES DE TEMPPLATE
 private:
@@ -20,7 +18,7 @@ private:
     float app;
     float debito;
     float credito;
-    array<necesidadCliente, tam> necesidad;
+    array<necesidadCliente, 3> necesidad;
     const unsigned int nro;
     bool preferenciaTicketFisico;
     metodoPago metP;
@@ -42,7 +40,7 @@ public:
     void set_app(float app);
     void set_credito(float credito);
     void set_debito(float debito);
-    array<necesidadCliente,tam> get_nec();
+    array<necesidadCliente,3> get_nec();
     metodoPago get_metP();
     float get_efectivo();
     float get_app();
