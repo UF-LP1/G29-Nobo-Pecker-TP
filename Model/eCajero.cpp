@@ -4,6 +4,7 @@
 
 
 #include "eCajero.h"
+#include <exception>
 
  /**
   * eCajero implementation
@@ -34,6 +35,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
              descuento = actual->descuento_total(cliente->get_nec());
         monto = monto + (cliente->carrito[i].get_precio()*(100-descuento)/100 )* cliente->cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
     }
+    try {
 
     //llamo a la funcion pagar de cliente
     metodoPago MP = cliente->get_metP();
@@ -55,10 +57,14 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
         for (int l = 0; l < cliente->carrito.size(); l++) {
             cliente->carrito[l].set_stock(cliente->carrito[l].get_stock() + cliente->cantidades[l]);
         }
-        return -1; //si no pudo pagar con ninguno de los otros metodos, restockeo mi farmacia y devuelvo -1
+        throw exception(); //si no pudo pagar con ninguno de los otros metodos, restockeo mi farmacia y lanzo una excepcion
     }
     else cliente->set_metP(aux);
-    
+    }
+    catch(exception& NoPago){
+        cout << "El cliente no tiene dinero suficiente para completar la transacción";
+        return -1; //salgo de la funcion
+    }
 
     //si sigo en la funcion (ya cobre) le sumo el monto a los fondos de farmacia
     float nuevosFondos = farmacia.get_fondos() + monto;
