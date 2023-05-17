@@ -41,7 +41,7 @@ unsigned int pMedicamentos:: descuento_total(array<necesidadCliente,3> necesidad
 			else 
 				throw exception();
 			}
-			catch(exception& descuentoMayorAl50){ //si el descuento ya es mayor al 50% lanza una excepcion y se mantiene el descuento original
+			catch(exception& DescuentoMayorAl50){ //si el descuento ya es mayor al 50% lanza una excepcion y se mantiene el descuento original
 				descuento = this->descuento;
 				break;
 			}
