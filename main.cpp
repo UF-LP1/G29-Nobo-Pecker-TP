@@ -8,6 +8,7 @@
 #include "Model/FARMACIA.h"
 #include<queue>
 
+unsigned int inventarCantidades();
 array<necesidadCliente, 3> generarNecesidades();
 
 int main() {

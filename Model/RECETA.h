@@ -6,7 +6,7 @@
 #ifndef _RECETA_H
 #define _RECETA_H
 
-#include "PERSONA.h"
+#include "pMedicamentos.h"
 
 class RECETA {
 public:
@@ -14,9 +14,13 @@ public:
     const string medico;
     const string fecha;
     const string diagnostico;
+    const string dniCliente;
+    const  pMedicamentos medicamento;
 
-    RECETA(string m, string f, string d);
+    RECETA(string medico, string fecha, string diagnostico, string dniCliente, pMedicamentos medicamento);
     ~RECETA();
+    string get_dni();
+    pMedicamentos get_medicamento();
 
 };
 
