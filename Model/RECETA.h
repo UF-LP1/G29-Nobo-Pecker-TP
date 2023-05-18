@@ -15,7 +15,7 @@ public:
     const string fecha;
     const string diagnostico;
     const string dniCliente;
-    const  pMedicamentos medicamento;
+    pMedicamentos medicamento;
 
     RECETA(string medico, string fecha, string diagnostico, string dniCliente, pMedicamentos medicamento);
     ~RECETA();
