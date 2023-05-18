@@ -17,7 +17,7 @@ private:
     const string dniCliente;
     const string medicamento;
 public:
-    RECETA(string medico, string fecha, string diagnostico, string dniCliente, pMedicamentos medicamento);
+    RECETA(string medico, string fecha, string diagnostico, string dniCliente, string medicamento);
     ~RECETA();
     string get_dni();
     string get_medicamento();
