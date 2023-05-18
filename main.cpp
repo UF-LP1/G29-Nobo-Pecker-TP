@@ -92,8 +92,8 @@ int main() {
 				productos.push_back(medicamento1);
 				productos.push_back(medicamento2);
 				//agrego la cantidad que quiere de cada uno a la lista de cantidades
-				cantidades.push_back(1);
-				cantidades.push_back(1);
+				cantidades.push_back(inventarCantidades());
+				cantidades.push_back(inventarCantidades());
 				//el farmaceutico me los vende
 				farmaceutico.vender(cliente, productos, cantidades);
 
@@ -104,8 +104,8 @@ int main() {
 				productos.push_back(productoPerfumeria1);
 				productos.push_back(productoPerfumeria2);
 				//agrego la cantidad que quiere de cada uno a la lista de cantidades
-				cantidades.push_back(1);
-				cantidades.push_back(3);
+				cantidades.push_back(inventarCantidades());
+				cantidades.push_back(inventarCantidades());
 				//el empleado de perfumeria me las vende
 				empleadoPerfumeria.vender(cliente, productos, cantidades);
 
@@ -115,7 +115,7 @@ int main() {
 				//agrego las vendas a la lista de productos que quiero agregar al carrito
 				productos.push_back(productoOrtopedia);
 				//agrego la cantidad de vendas que quiere a la lista de cantidades
-				cantidades.push_back(1);
+				cantidades.push_back(inventarCantidades());
 				//el empleado de ortopedia me las vende
 				empleadoOrtopedia.vender(cliente, productos, cantidades);
 
@@ -125,15 +125,21 @@ int main() {
 			}
 
 		}
+		
+		//
+		int quiereGolosinas = rand() % 2;
+		if (quiereGolosinas == 0) { //si me devuelven todos 0 es porque se arrepintio de comprar golosinas, que se le va a hacer
+			vector<pGolosinas> listaGolosinas;
+			listaGolosinas.push_back(golosina1);
+			listaGolosinas.push_back(golosina2);
+			vector<unsigned int> cantidadesGolosinas;
+			cantidadesGolosinas.push_back(inventarCantidades());
+			cantidadesGolosinas.push_back(inventarCantidades());
+			cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
+		}
 
 		//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
-		vector<pGolosinas> listaGolosinas;
-		listaGolosinas.push_back(golosina1);
-		listaGolosinas.push_back(golosina2);
-		vector<unsigned int> cantidadesGolosinas;
-		cantidadesGolosinas.push_back(1);
-		cantidadesGolosinas.push_back(3);
-		cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
+		
 
 		//ahora que tiene el carrito lleno va a ir a que le cobren
 		cajero.cobrar(cliente, NoboPecker);
@@ -183,17 +189,7 @@ array<necesidadCliente, 3> generarNecesidades() {
 	return necesidades;
 }
 
-void generarCompraGolosinas(vector <pGolosinas> golosinas, vector <unsigned int> cantidades) {
-	int cantidadQueLleva = rand() % 6;
-	if (cantidadQueLleva == 0) {
-		for (int y = 0; y < golosinas.size(), y++) {
-			golosinas.push_back(unspecifiedG);
-			cantidades.push_back(0);
-		}
-	}
-		
-
+//funcion que me devuelve una cantidad random del 0 al 5 (llega al 5 por un ejemplo, este valor podría variar) para ver cuantos items de cada producto se llevan los clientes
+unsigned int inventarCantidades() {
+	return rand() % 5;
 }
-
-
-//chocolate, chupetin, gomitas, caramelos, chicles, unspecifiedG
