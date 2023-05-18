@@ -9,18 +9,18 @@
 #include "pMedicamentos.h"
 
 class RECETA {
-public:
+private:
 
     const string medico;
     const string fecha;
     const string diagnostico;
     const string dniCliente;
-    pMedicamentos medicamento;
-
+    const string medicamento;
+public:
     RECETA(string medico, string fecha, string diagnostico, string dniCliente, pMedicamentos medicamento);
     ~RECETA();
     string get_dni();
-    pMedicamentos get_medicamento();
+    string get_medicamento();
 
 };
 
