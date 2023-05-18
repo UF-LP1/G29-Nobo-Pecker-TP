@@ -6,6 +6,7 @@
 #include "Model/ePerfumeria.h"
 #include "Model/eLimpieza.h"
 #include "Model/FARMACIA.h"
+#include<queue>
 
 array<necesidadCliente, 3> generarNecesidades();
 
@@ -54,74 +55,94 @@ int main() {
 	//construyo el asistente automatico
 	ASIST_AUTOM asistenteAutomatico;
 
-	//construyo un cliente
+	//construyo una fila de clientes cliente
+		queue<CLIENTE*>filaClientes;
+	
+	//genero un array de necesidades para cada cliente
+	array<necesidadCliente, 3> necesidades1 = generarNecesidades();
+	array<necesidadCliente, 3>necesidades2=generarNecesidades();
+	array<necesidadCliente, 3>necesidades3 = generarNecesidades();
+	
+	//construyo los clientes
+	CLIENTE *cliente1 = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), necesidades1, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
+	CLIENTE* cliente2 = new CLIENTE("Carlos_Baute", "34567823", asistenteAutomatico.entregarTicket(), necesidades2, 0.0, 0.0, 0.0, 0.0, "2235448020", "carlitosbaute@gmail.com", false, credito);
+	CLIENTE* cliente3 = new CLIENTE("Maria_Esclavitud", "12345678", asistenteAutomatico.entregarTicket(), necesidades3, 2000.0, 15000.0, 700.0, 8000.0, "223154557475", "abuela_mari@gmail.com", true, debito);
+	
+	//agrego los clientes a la queue
+	filaClientes.push(cliente1);
+	filaClientes.push(cliente2);
+	filaClientes.push(cliente3);
 
-	array<necesidadCliente, 3> necesidades;
-	necesidades = generarNecesidades();
-	
-	CLIENTE *cliente = new CLIENTE("Julieta_Sosa", "44988100", asistenteAutomatico.entregarTicket(), necesidades, 2000.0, 15000.0, 0.0, 0.0, "11244665", "juli2002@gmail.com", false, efectivo);
-	
-	for (int a = 0; a < 3; a++)
-	{	
-		tipoEmpleado empleadoActual = empleadoMostrador.atenderCliente(cliente, a);
-		if (empleadoActual == unspecifiedTE)
-			break;
-		vector<PRODUCTO> productos;
-		vector<unsigned int> cantidades;
-		switch (empleadoActual)
+	//atiendo los clientes en la fila
+	for (int i = 0; i < filaClientes.size(); i++) {
+		
+		CLIENTE* cliente = filaClientes.front();
+
+		for (int a = 0; a < 3; a++)
 		{
-		case farmaceutico_:{
-			//agrego los medicamentos a la lista de productos que quiero agregar al carrito
-			productos.push_back(medicamento1);
-			productos.push_back(medicamento2);
-			//agrego la cantidad que quiere de cada uno a la lista de cantidades
-			cantidades.push_back(1);
-			cantidades.push_back(1);
-			//el farmaceutico me los vende
-			farmaceutico.vender(cliente, productos, cantidades);
+			tipoEmpleado empleadoActual = empleadoMostrador.atenderCliente(cliente, a);
+			if (empleadoActual == unspecifiedTE)
+				break;
+			vector<PRODUCTO> productos;
+			vector<unsigned int> cantidades;
+			switch (empleadoActual)
+			{
+			case farmaceutico_: {
+				//agrego los medicamentos a la lista de productos que quiero agregar al carrito
+				productos.push_back(medicamento1);
+				productos.push_back(medicamento2);
+				//agrego la cantidad que quiere de cada uno a la lista de cantidades
+				cantidades.push_back(1);
+				cantidades.push_back(1);
+				//el farmaceutico me los vende
+				farmaceutico.vender(cliente, productos, cantidades);
 
-			break;
+				break;
 			}
-		case perfumeria_: {
-			//agrego los productos de perfumeria a la lista de productos que quiero agregar al carrito
-			productos.push_back(productoPerfumeria1);
-			productos.push_back(productoPerfumeria2);
-			//agrego la cantidad que quiere de cada uno a la lista de cantidades
-			cantidades.push_back(1);
-			cantidades.push_back(3);
-			//el empleado de perfumeria me las vende
-			empleadoPerfumeria.vender(cliente, productos, cantidades);
+			case perfumeria_: {
+				//agrego los productos de perfumeria a la lista de productos que quiero agregar al carrito
+				productos.push_back(productoPerfumeria1);
+				productos.push_back(productoPerfumeria2);
+				//agrego la cantidad que quiere de cada uno a la lista de cantidades
+				cantidades.push_back(1);
+				cantidades.push_back(3);
+				//el empleado de perfumeria me las vende
+				empleadoPerfumeria.vender(cliente, productos, cantidades);
 
-			break;
-		}
-		case ortopedia_: {
-			//agrego las vendas a la lista de productos que quiero agregar al carrito
-			productos.push_back(productoOrtopedia);
-			//agrego la cantidad de vendas que quiere a la lista de cantidades
-			cantidades.push_back(1);
-			//el empleado de ortopedia me las vende
-			empleadoOrtopedia.vender(cliente, productos, cantidades);
+				break;
+			}
+			case ortopedia_: {
+				//agrego las vendas a la lista de productos que quiero agregar al carrito
+				productos.push_back(productoOrtopedia);
+				//agrego la cantidad de vendas que quiere a la lista de cantidades
+				cantidades.push_back(1);
+				//el empleado de ortopedia me las vende
+				empleadoOrtopedia.vender(cliente, productos, cantidades);
 
-			break;
+				break;
+			}
+			default: break;
+			}
+
 		}
-		default: break;
-		}
+
+		//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
+		vector<pGolosinas> listaGolosinas;
+		listaGolosinas.push_back(golosina1);
+		listaGolosinas.push_back(golosina2);
+		vector<unsigned int> cantidadesGolosinas;
+		cantidadesGolosinas.push_back(1);
+		cantidadesGolosinas.push_back(3);
+		cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
+
+		//ahora que tiene el carrito lleno va a ir a que le cobren
+		cajero.cobrar(cliente, NoboPecker);
+
 
 	}
-
-	//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
-	vector<pGolosinas> listaGolosinas;
-	listaGolosinas.push_back(golosina1);
-	listaGolosinas.push_back(golosina2);
-	vector<unsigned int> cantidadesGolosinas;
-	cantidadesGolosinas.push_back(1);
-	cantidadesGolosinas.push_back(3);
-	cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
-
-	//ahora que tiene el carrito lleno va a ir a que le cobren
-	cajero.cobrar(cliente, NoboPecker, cliente->get_prefTicket());
-
-	delete cliente;
+	delete cliente1;
+	delete cliente2;
+	delete cliente3;
 
 	//pero antes de cerrar la farmacia hay que limpiarla 
 	empleadoLimpieza.limpiar(NoboPecker);
@@ -162,6 +183,17 @@ array<necesidadCliente, 3> generarNecesidades() {
 	return necesidades;
 }
 
+void generarCompraGolosinas(vector <pGolosinas> golosinas, vector <unsigned int> cantidades) {
+	int cantidadQueLleva = rand() % 6;
+	if (cantidadQueLleva == 0) {
+		for (int y = 0; y < golosinas.size(), y++) {
+			golosinas.push_back(unspecifiedG);
+			cantidades.push_back(0);
+		}
+	}
+		
+
+}
 
 
-
+//chocolate, chupetin, gomitas, caramelos, chicles, unspecifiedG

@@ -19,7 +19,7 @@ eCajero::~eCajero() {
 
 }
 
-float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
+float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
 
    
     float monto = 0.0;
@@ -71,7 +71,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
     farmacia.set_fondos(nuevosFondos);
 
     //segun la preferencia del ticket de la persona, imprimo en pantalla el monto o se lo envio por mail
-    if (ticketFisico) {
+    if (cliente->get_prefTicket()) {
         cout << "Cliente: " << cliente->get_nro() << endl;
         for (int y = 0; y < cliente->carrito.size(); y++) {
             cout << "Producto: " << cliente->carrito[y].nombre << '\t' << "Precio parcial: $" << cliente->carrito[y].get_precio() << '\t' << "Cantidad: " << cliente->cantidades[y] << '\t' << "Precio total: $" << (cliente->carrito[y].get_precio()*cliente->cantidades[y])<<endl;
@@ -82,7 +82,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia, bool ticketFisico) {
         
     else
     {
-        string mailC = get_mail();
+        string mailC = get_mail(); //
         cout << "El ticket se envio por mail";
         //enviar por mail
     }
