@@ -22,5 +22,5 @@ string RECETA::get_dni() {
 }
 
 pMedicamentos RECETA::get_medicamento() {
-	return this->medicamennto;
+	return this->medicamento;
 }
