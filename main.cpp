@@ -166,7 +166,7 @@ array<necesidadCliente, 3> generarNecesidades() {
 	switch (cantidad) {
 	case 1: {
 		necesidades[0] = necesidadCliente(rand() % 5);
-		necesidades[1] = necesidades[2] = unspecified;
+		necesidades[1] = necesidades[2] = necesidadCliente(5); //unspecifiedNC
 		break;
 	}
 	case 2: {
@@ -177,7 +177,7 @@ array<necesidadCliente, 3> generarNecesidades() {
 		else do {
 			necesidades[1] = necesidadCliente(rand() % 5);
 		} while (necesidades[1] == necesidades[0]);
-		necesidades[2] = unspecified;
+		necesidades[2] = necesidadCliente(5);
 		break;
 	}
 	case 3: {

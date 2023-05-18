@@ -44,7 +44,7 @@ tipoEmpleado eMostrador::atenderCliente(CLIENTE* cliente, unsigned int nroNecesi
         necesidad = ortopedia_;
         break;
     }
-    default: //si es unspecified me devuelve unspecified por default
+    default: //si es unspecifiedNC me devuelve unspecifiedTE por default
         break;
     }
     
