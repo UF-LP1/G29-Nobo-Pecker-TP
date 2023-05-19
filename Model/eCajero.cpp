@@ -62,7 +62,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     else cliente->set_metP(aux);
     }
     catch(exception& NoPago){
-        cout << "El cliente "<<cliente->get_nro()<<"no tiene dinero suficiente para completar la transacción";
+        cout << "El cliente "<<cliente->get_nro()<<" no tiene dinero suficiente para completar la transacción";
         return -1; //salgo de la funcion
     }
 
