@@ -18,7 +18,7 @@ array<necesidadCliente, 3> generarNecesidades();
 inline array<necesidadCliente, 3> generarNecesidades() {
 	srand(NULL);
 	int cantidad = (rand() % 3) + 1;// me devuelve 1, 2 o 3 para ver cuantas necesidades va a tener (no puedo tener más de una obra social, etc)
-	array<necesidadCliente, 3> necesidades;
+	array<necesidadCliente, 3> necesidades{};
 	switch (cantidad) {
 	case 1: {
 		necesidades[0] = necesidadCliente(rand() % 5);
