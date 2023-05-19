@@ -64,7 +64,7 @@ int main() {
 	filaClientes.push(cliente1);
 	filaClientes.push(cliente2);
 	filaClientes.push(cliente3);
-	int tamanioFila = filaClientes.size();
+	size_t tamanioFila = filaClientes.size();
 
 	//atiendo los clientes en la fila
 	for (int i = 0; i < tamanioFila; i++) {
@@ -142,6 +142,80 @@ int main() {
 	delete cliente2;
 	delete cliente3;
 
+	string nombreApellido, dni, telefono, mail;
+	cout << "Ingrese su nombre y apellido: " << endl;
+	cin >> nombreApellido;
+	cout << "Ingrese su DNI: " << endl;
+	cin >> dni;
+	cout << "Ingrese su telefono: " << endl;
+	cin >> telefono;
+	cout << "Ingrese su mail: " << endl;
+	cin >> mail;
+	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1- FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones";;
+	array<necesidadCliente, 3> necesidadUsuario{};
+	for (int h = 0; h < 3; h++)
+	{
+		int necesidadActual;
+		cin >> necesidadActual;
+		do
+		{
+			try {
+				if (necesidadActual == 6)
+				{
+					for (int f = h; f < 3; f++)
+						necesidadUsuario[f] = unspecifiedNC;
+					break;
+				}
+
+				if (h != 0) {
+					for (int g = h - 1; g >= 0; g--)
+					{
+						//si ingresa una seccion repetida o 2 veces una farmacia lanzo una excepcion
+						if (necesidadActual == necesidadUsuario[g] || ((necesidadActual >= 1 && necesidadActual <= 3) && (necesidadUsuario[g] >= 1 && necesidadUsuario[g] <= 3)))
+							throw exception();
+					}
+				}
+				else
+					necesidadUsuario[h] = necesidadCliente(necesidadActual - 1);
+			}
+			catch(exception& SeccionRepetida){ 
+				cout << "Esa seccion ya fue ingresada, por favor elija otra: " << endl;
+				h--; //para que vuelva a preguntarlo, asi siempre tengo 3 distintas
+			}
+		} while (necesidadActual < 1 || necesidadActual>6);
+	}
+	
+	float efectivoU, appU, debitoU, creditoU;
+	cout << "Ingrese su monto en efectivo: " << endl;
+	cin >> efectivoU;
+	cout << "Ingrese su monto en la aplicacion del celular: " << endl;
+	cin >> appU;
+	cout << "Ingrese su monto en tarjeta de debito: " << endl;
+	cin >> debitoU;
+	cout << "Ingrese su monto en tarjeta de credito: " << endl;
+	cin >> creditoU;
+	
+	int ticketU;
+	do {
+	cout << "Si desea recibir ticket fisico elija 1, si desea recibir ticket digital elija 0: " << endl;
+	cin >> ticketU;
+	} while (!(ticketU == 0 || ticketU == 1));
+	
+	int prefMetPago;
+	do {
+	cout << "Ingrese su metodo de pago de preferencia: " << endl << "1- EFECTIVO" << endl << "2- CREDITO" << endl << "3- DEBITO" << endl << "4- APP" << endl;
+	cin >> prefMetPago;
+	} while (!(prefMetPago >= 1 && prefMetPago <= 4));
+
+	CLIENTE* usuario = new CLIENTE(nombreApellido, dni, asistenteAutomatico.entregarTicket(), necesidadUsuario, efectivoU, appU, debitoU, creditoU, telefono, mail, bool(ticketU), metodoPago(prefMetPago - 1));
+	
+
+
+
+
+
+
+	delete usuario;
 	//pero antes de cerrar la farmacia hay que limpiarla 
 	empleadoLimpieza.limpiar(NoboPecker);
 
