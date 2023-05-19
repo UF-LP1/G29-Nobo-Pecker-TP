@@ -152,10 +152,11 @@ int main() {
 	cin >> telefono;
 	cout << "Ingrese su mail: " << endl;
 	cin >> mail;
-	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1- FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones";;
+	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1- FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
 	array<necesidadCliente, 3> necesidadUsuario{};
 	for (int h = 0; h < 3; h++)
 	{
+		bool flag=true;
 		int necesidadActual;
 		cin >> necesidadActual;
 		do
@@ -172,9 +173,10 @@ int main() {
 					for (int g = h - 1; g >= 0; g--)
 					{
 						//si ingresa una seccion repetida o 2 veces una farmacia lanzo una excepcion
-						if (necesidadActual == necesidadUsuario[g] || ((necesidadActual >= 1 && necesidadActual <= 3) && (necesidadUsuario[g] >= 1 && necesidadUsuario[g] <= 3)))
-							throw exception();
+						if (((necesidadActual >= 1 && necesidadActual <= 3) && ((int)necesidadUsuario[g] >= 0 && (int)necesidadUsuario[g] <= 2)) || (necesidadActual-1) == (int)necesidadUsuario[g])
+							flag = false;
 					}
+					if (!flag) throw exception();
 				}
 				else
 					necesidadUsuario[h] = necesidadCliente(necesidadActual - 1);
@@ -223,7 +225,7 @@ int main() {
 		vector <PRODUCTO> carritoUsuario;
 		vector <unsigned int> cantidadesUsuario;
 
-		switch (usuario->get_nec()[b]) {
+		switch ((int)usuario->get_nec()[b]) {
 		case 3: { //perfumeria
 			
 			do {

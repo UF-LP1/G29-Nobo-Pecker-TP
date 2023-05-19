@@ -18,13 +18,13 @@ PERSONA::~PERSONA() {
 
 }
 
-void PERSONA::set_telefono(string t) {
-    this->telefono = t;
+void PERSONA::set_telefono(string telefono) {
+    this->telefono = telefono;
     return;
 }
 
-void PERSONA::set_mail(string m) {
-    this->mail = m;
+void PERSONA::set_mail(string mail) {
+    this->mail = mail;
     return;
 }
 

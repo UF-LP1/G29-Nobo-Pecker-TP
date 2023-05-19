@@ -19,7 +19,7 @@ EMPLEADO::~EMPLEADO() {
 
 }
 
-void EMPLEADO::set_sueldo(double sueldo) {
+void EMPLEADO::set_sueldo(float sueldo) {
     this->sueldo = sueldo;
     return;
 }
@@ -29,7 +29,7 @@ void EMPLEADO::set_horariosTrabajo(string horarioT) {
     return;
 }
 
-double EMPLEADO::get_sueldo() {
+float EMPLEADO::get_sueldo() {
     return this->sueldo;
 }
 

@@ -15,12 +15,12 @@ public:
     EMPLEADO(string na, string dni, string tel, string mail);
     ~EMPLEADO();
 
-    void set_sueldo(double sueldo);
+    void set_sueldo(float sueldo);
     void set_horariosTrabajo(string horarioT);
-    double get_sueldo();
+    float get_sueldo();
     string get_horariosTrabajo();
 protected:
-    double sueldo;
+    float sueldo;
     string horariosTrabajo;
 
 };

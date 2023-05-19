@@ -17,8 +17,8 @@ public:
     PERSONA(string na, string dni,string tel, string mail);
     ~PERSONA();
 
-    void set_telefono(string t);
-    void set_mail(string m);
+    void set_telefono(string telefono);
+    void set_mail(string mail);
     string get_mail();
     string get_telefono();
 

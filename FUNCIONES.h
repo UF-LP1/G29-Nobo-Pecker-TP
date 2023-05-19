@@ -8,6 +8,7 @@
 #include "Model/eLimpieza.h"
 #include "Model/FARMACIA.h"
 #include<queue>
+#include <exception>
 
 unsigned int inventarCantidades();
 array<necesidadCliente, 3> generarNecesidades();
