@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FUNCIONES.h" />
     <ClInclude Include="Model\artOrtopedia.h" />
     <ClInclude Include="Model\artPerfumeria.h" />
     <ClInclude Include="Model\ASIST_AUTOM.h" />
