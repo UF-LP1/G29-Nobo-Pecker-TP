@@ -6,7 +6,7 @@
 #ifndef _EORTOPEDIA_H
 #define _EORTOPEDIA_H
 
-#include "VENDEDOR.h"
+#include "../VENDEDOR.h"
 #include "CLIENTE.h"
 #include "tipoEmpleado.h"
 #include "pOrtopedia.h"

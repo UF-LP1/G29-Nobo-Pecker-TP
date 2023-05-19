@@ -84,10 +84,10 @@
     <ClInclude Include="Model\tipoEmpleado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VENDEDOR.h">
+    <ClInclude Include="FUNCIONES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FUNCIONES.h">
+    <ClInclude Include="VENDEDOR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -144,6 +144,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VENDEDOR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

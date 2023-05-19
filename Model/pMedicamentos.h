@@ -18,7 +18,7 @@ public:
     pMedicamentos(string n, string desc, bool vl);
     ~pMedicamentos();
     
-    unsigned int descuento_total(array<necesidadCliente, 3> necesidades) ;
+    unsigned int descuento_total(array<necesidadCliente, 3> necesidades);
 };
 
 #endif //_PMEDICAMENTOS_H

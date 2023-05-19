@@ -6,7 +6,7 @@
 #ifndef _EPERFUMERIA_H
 #define _EPERFUMERIA_H
 
-#include "VENDEDOR.h"
+#include "../VENDEDOR.h"
 #include "CLIENTE.h"
 #include "tipoEmpleado.h"
 #include "pPerfumeria.h"

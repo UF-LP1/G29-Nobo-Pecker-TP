@@ -6,10 +6,10 @@
 #ifndef _EFARMACEUTICO_H
 #define _EFARMACEUTICO_H
 
-#include "VENDEDOR.h"
 #include "CLIENTE.h"
 #include "tipoEmpleado.h"
 #include "pMedicamentos.h"
+#include "../VENDEDOR.h"
 
 
 class eFarmaceutico : public VENDEDOR {

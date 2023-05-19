@@ -18,7 +18,7 @@ eLimpieza::~eLimpieza() {
 
 }
 
-void limpiar(FARMACIA farmacia) {
+void eLimpieza:: limpiar(FARMACIA farmacia) {
 	if (!(farmacia.get_limpio())) {
 		farmacia.set_limpio(true);
 	}
