@@ -172,6 +172,7 @@
     <ClCompile Include="Model\PRODUCTO.cpp" />
     <ClCompile Include="Model\RECETA.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="FUNCIONES.cpp" />
     <ClCompile Include="VENDEDOR.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

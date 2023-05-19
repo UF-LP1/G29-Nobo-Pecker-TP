@@ -149,5 +149,8 @@
     <ClCompile Include="VENDEDOR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FUNCIONES.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
