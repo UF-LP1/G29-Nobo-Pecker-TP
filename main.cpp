@@ -64,9 +64,10 @@ int main() {
 	filaClientes.push(cliente1);
 	filaClientes.push(cliente2);
 	filaClientes.push(cliente3);
+	int tamanioFila = filaClientes.size();
 
 	//atiendo los clientes en la fila
-	for (int i = 0; i < filaClientes.size(); i++) {
+	for (int i = 0; i < tamanioFila; i++) {
 		
 		CLIENTE* cliente = filaClientes.front();
 
@@ -118,7 +119,7 @@ int main() {
 
 		}
 		
-		//
+		//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
 		int quiereGolosinas = rand() % 2;
 		if (quiereGolosinas == 0) { //si me devuelven todos 0 es porque se arrepintio de comprar golosinas, que se le va a hacer
 			vector<pGolosinas> listaGolosinas;
@@ -129,16 +130,13 @@ int main() {
 			cantidadesGolosinas.push_back(inventarCantidades());
 			cliente->comprarGolosinas(listaGolosinas, cantidadesGolosinas);
 		}
-
-		//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
 		
-
 		//ahora que tiene el carrito lleno va a ir a que le cobren
 		cajero.cobrar(cliente, NoboPecker);
 		
 		//una vez que termino de pagar, lo saco de la fila de clientes para seguir con el proximo
 		filaClientes.pop(); 
-
+		//delete cliente;
 	}
 	delete cliente1;
 	delete cliente2;
