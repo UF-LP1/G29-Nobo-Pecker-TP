@@ -144,7 +144,9 @@ int main() {
 
 		//ahora que tiene el carrito lleno va a ir a que le cobren
 		cajero.cobrar(cliente, NoboPecker);
-
+		
+		//una vez que termino de pagar, lo saco de la fila de clientes para seguir con el proximo
+		filaClientes.pop(); 
 
 	}
 	delete cliente1;
