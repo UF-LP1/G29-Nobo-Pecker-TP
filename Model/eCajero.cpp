@@ -62,7 +62,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     else cliente->set_metP(aux);
     }
     catch(exception& NoPago){
-        cout << "El cliente " << cliente->get_nro() << " no tiene dinero suficiente para completar la transaccion" << endl;
+        cout << "El cliente nro:" << cliente->get_nro() << " no tiene dinero suficiente para completar la transaccion" << endl;
         return -1; //salgo de la funcion
     }
 
@@ -71,12 +71,14 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     farmacia.set_fondos(nuevosFondos);
 
     //segun la preferencia del ticket de la persona, imprimo en pantalla el monto o se lo envio por mail
+    float montoSinDescuento = 0;
     if (cliente->get_prefTicket()) {
-        cout << "Cliente: " << cliente->get_nro() << endl;
+        cout << "Cliente nro: " << cliente->get_nro() << endl;
         for (int y = 0; y < cliente->carrito.size(); y++) {
             cout << "Producto: " << cliente->carrito[y].nombre << '\t' << "Precio parcial: $" << cliente->carrito[y].get_precio() << '\t' << "Cantidad: " << cliente->cantidades[y] << '\t' << "Precio total: $" << (cliente->carrito[y].get_precio()*cliente->cantidades[y])<<endl;
+            montoSinDescuento = montoSinDescuento + (cliente->carrito[y].get_precio()*cliente->cantidades[y]);
         }
-        cout<< "Importe total: $" << monto << endl;
+        cout<< "Total: $" << montoSinDescuento << endl<< "Descuento aplicado: $"<<(montoSinDescuento-monto)<<endl<<"Total a pagar: $"<<monto<<endl;
 
     }
         

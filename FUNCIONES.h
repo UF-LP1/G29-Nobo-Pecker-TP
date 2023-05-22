@@ -9,6 +9,7 @@
 #include "Model/FARMACIA.h"
 #include<queue>
 #include <exception>
+using namespace std;
 
 unsigned int inventarCantidades();
 array<necesidadCliente, 3> generarNecesidades();

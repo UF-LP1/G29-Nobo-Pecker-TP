@@ -33,7 +33,7 @@ public:
 
     bool pagar(float monto, metodoPago metPago);
     bool comprarGolosinas(vector <pGolosinas> golosinas, vector<unsigned int> cant);
-    void set_nec(necesidadCliente* necesidad);
+    void set_nec(array <necesidadCliente,3> necesidad);
     void set_metP(metodoPago metPago);
     void set_prefTicket(bool prefTicketFisico);
     void set_efectivo(float efectivo);

@@ -19,10 +19,13 @@ int main() {
 
 	//construyo los productos
 	//por default los decuentos se inicializan en 0 como los demas atributos, asi que los productos que no tienen un set descuento es porque no tienen descuento
-	pOrtopedia productoOrtopedia("vendas_azules", vendas_elasticas);
-	productoOrtopedia.set_precio(1000.0);
-	productoOrtopedia.set_descuento(10);
-	productoOrtopedia.set_stock(50);
+	pOrtopedia productoOrtopedia1("vendas_azules", vendas_elasticas);
+	productoOrtopedia1.set_precio(1000.0);
+	productoOrtopedia1.set_descuento(10);
+	productoOrtopedia1.set_stock(50);
+	pOrtopedia productoOrtopedia2("cabestrillos", cabestrillos);
+	productoOrtopedia2.set_precio(1500.0);
+	productoOrtopedia2.set_stock(10);
 	pPerfumeria productoPerfumeria1("shampoo_violeta", shampoo);
 	productoPerfumeria1.set_precio(800.0);
 	productoPerfumeria1.set_stock(10);
@@ -99,17 +102,19 @@ int main() {
 				//agrego la cantidad que quiere de cada uno a la lista de cantidades
 				cantidades.push_back(inventarCantidades());
 				cantidades.push_back(inventarCantidades());
-				//el empleado de perfumeria me las vende
+				//el empleado de perfumeria me los vende
 				empleadoPerfumeria.vender(cliente, productos, cantidades);
 
 				break;
 			}
 			case ortopedia_: {
-				//agrego las vendas a la lista de productos que quiero agregar al carrito
-				productos.push_back(productoOrtopedia);
-				//agrego la cantidad de vendas que quiere a la lista de cantidades
+				//agrego los productos de ortopedia a la lista de productos que quiero agregar al carrito
+				productos.push_back(productoOrtopedia1);
+				productos.push_back(productoOrtopedia2);
+				//agrego la cantidad que quiere de cada uno a la lista de cantidades
 				cantidades.push_back(inventarCantidades());
-				//el empleado de ortopedia me las vende
+				cantidades.push_back(inventarCantidades());
+				//el empleado de ortopedia me los vende
 				empleadoOrtopedia.vender(cliente, productos, cantidades);
 
 				break;
@@ -152,8 +157,9 @@ int main() {
 	cin >> telefono;
 	cout << "Ingrese su mail: " << endl;
 	cin >> mail;
-	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1- FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
-	array<necesidadCliente, 3> necesidadUsuario{};
+	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1-FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
+	array<necesidadCliente, 3> necesidadUsuario;
+	
 	for (int h = 0; h < 3; h++)
 	{
 		bool flag=true;
@@ -178,8 +184,7 @@ int main() {
 					}
 					if (!flag) throw exception();
 				}
-				else
-					necesidadUsuario[h] = necesidadCliente(necesidadActual - 1);
+					if(flag) necesidadUsuario[h] = necesidadCliente(necesidadActual - 1);
 			}
 			catch (exception& SeccionRepetida) {
 				cout << "Esa seccion ya fue ingresada, por favor elija otra: " << endl;
@@ -187,6 +192,7 @@ int main() {
 			}
 		} while (necesidadActual < 1 || necesidadActual>6);
 	}
+	
 
 	float efectivoU, appU, debitoU, creditoU;
 	cout << "Ingrese su monto en efectivo: " << endl;
@@ -217,7 +223,6 @@ int main() {
 	int productoActual;
 	int cantidadActual;
 
-	
 
 	for (int b = 0; b < 3; b++) {
 		bool sigueQueriendoProductos = true;
@@ -225,11 +230,11 @@ int main() {
 		vector <PRODUCTO> carritoUsuario;
 		vector <unsigned int> cantidadesUsuario;
 
-		switch ((int)usuario->get_nec()[b]) {
-		case 3: { //perfumeria
+		switch (usuario->get_nec()[b]) {
+		case perfumeria: { 
 			
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA" << endl << "2-ESMALTE ROJO" << endl << "3-NO DESEO MAS PRODUCTOS" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA" << endl << "2-ESMALTE ROJO" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -258,9 +263,9 @@ int main() {
 			empleadoPerfumeria.vender(usuario, carritoUsuario, cantidadesUsuario);
 			break;
 		}
-		case 4: { //ortopedia
+		case ortopedia: { 
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES" << endl << "2-NO DESEO MAS PRODUCTOS" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES" <<endl<<"2-CABESTRILLOS" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -268,27 +273,34 @@ int main() {
 					cout << "Ingrese la cantidad de ejemplares: " << endl;
 					cin >> cantidadActual;
 					if (cantidadActual > 0) {
-					carritoUsuario.push_back(productoOrtopedia);
+					carritoUsuario.push_back(productoOrtopedia1);
 					cantidadesUsuario.push_back(cantidadActual);
 					}
-					break;
 				}
-
+					break;
+				case 2: {
+					cout << "Ingrese la cantidad de ejemplares: " << endl;
+					cin >> cantidadActual;
+					if (cantidadActual > 0) {
+						carritoUsuario.push_back(productoOrtopedia2);
+						cantidadesUsuario.push_back(cantidadActual);
+					}
+				}
 				default:
 					break;
-
 				}
-				break;
-			} while (productoActual != 2);
+				
+			} while (productoActual != 3);
 			empleadoOrtopedia.vender(usuario, carritoUsuario, cantidadesUsuario);
+			break;
 		}
-		case 5: { //unspecifiedNC
+		case unspecifiedNC: { 
 			sigueQueriendoProductos = false;
 			break;
 		}
 		default: {//alguna farmacia
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO" << endl << "2-ACTRON" << endl << "3-NO DESEO MAS PRODUCTOS" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO" << endl << "2-ACTRON" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -333,7 +345,7 @@ int main() {
 		vector <unsigned int> cantGolosinasU;
 		do
 		{
-		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO" << endl << "2-CHUPETIN DE FRUTILLA" << endl<<"3- NO DESEO MAS GOLOSINAS"<<endl;
+		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO" << endl << "2-CHUPETIN DE FRUTILLA" << endl<<"3-NO DESEO MAS GOLOSINAS"<<endl;
 		cin >> productoActual;
 		switch (productoActual) {
 		case 1: {
@@ -362,6 +374,7 @@ int main() {
 	cajero.cobrar(usuario, NoboPecker);
 
 	delete usuario;
+
 	//pero antes de cerrar la farmacia hay que limpiarla 
 	empleadoLimpieza.limpiar(NoboPecker);
 
