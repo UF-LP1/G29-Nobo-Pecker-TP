@@ -234,7 +234,7 @@ int main() {
 		case perfumeria: { 
 			
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA" << endl << "2-ESMALTE ROJO" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA: $"<<productoPerfumeria1.get_precio() << endl << "2-ESMALTE ROJO: $" <<productoPerfumeria2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -265,7 +265,7 @@ int main() {
 		}
 		case ortopedia: { 
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES" <<endl<<"2-CABESTRILLOS" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES: $"<<productoOrtopedia1.get_precio() << endl << "2-CABESTRILLOS: $" <<productoOrtopedia2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -300,7 +300,7 @@ int main() {
 		}
 		default: {//alguna farmacia
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO" << endl << "2-ACTRON" << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO: $"<<medicamento1.get_precio() << endl << "2-ACTRON: $"<<medicamento2.get_precio()<< endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -345,7 +345,7 @@ int main() {
 		vector <unsigned int> cantGolosinasU;
 		do
 		{
-		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO" << endl << "2-CHUPETIN DE FRUTILLA" << endl<<"3-NO DESEO MAS GOLOSINAS"<<endl;
+		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO: $"<<golosina1.get_precio() << endl << "2-CHUPETIN DE FRUTILLA: $"<<golosina2.get_precio() << endl << "3-NO DESEO MAS GOLOSINAS" << endl;
 		cin >> productoActual;
 		switch (productoActual) {
 		case 1: {
