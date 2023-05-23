@@ -37,5 +37,30 @@
 	return rand() % 5;
 }
 
-
+ string to_string_metPago(metodoPago metP) {
+	 string metPago;
+	 switch (metP){
+	 case 0: {
+		 metPago = "efectivo";
+		 break;
+	 }
+	 case 1: {
+		 metPago = "credito";
+		 break;
+	 }
+	 case 2: {
+		 metPago = "debito";
+		 break;
+	 }
+	 case 3: {
+		 metPago = "app";
+		 break;
+	 }
+	 default: {
+		 metPago = "Metodo de pago no especificado";
+		 break;
+	 }
+	 }
+	 return metPago;
+ }
 

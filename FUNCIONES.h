@@ -13,7 +13,7 @@ using namespace std;
 
 unsigned int inventarCantidades();
 array<necesidadCliente, 3> generarNecesidades();
-
+string to_string_metPago(metodoPago metP);
 
 
 
