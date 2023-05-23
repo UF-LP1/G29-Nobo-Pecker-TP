@@ -79,7 +79,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
             montoSinDescuento = montoSinDescuento + (cliente->carrito[y].get_precio()*cliente->cantidades[y]);
         }
         cout<< "Total: $" << montoSinDescuento << endl<< "Descuento aplicado: $"<<(montoSinDescuento-monto)<<endl<<"Total a pagar: $"<<monto<<endl;
-
+        cout << "Método de pago: " << cliente->get_metP() << endl<< endl;
     }
         
     else

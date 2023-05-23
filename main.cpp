@@ -3,7 +3,7 @@
 
 
 int main() {
-	cout << "A PARTIR DE AHORA COMIENZA LA SECCION NO INTERACTIVA DE LA FARMACIA:" << endl;
+	cout << "A PARTIR DE AHORA COMIENZA LA SECCION NO INTERACTIVA DE LA FARMACIA:" << endl<<endl;
 	//construyo nuestra farmacia
 	FARMACIA NoboPecker("NoboPecker");
 	NoboPecker.set_fondos(100000.0);
@@ -147,7 +147,8 @@ int main() {
 	delete cliente2;
 	delete cliente3;
 
-	cout << "A PARTIR DE AHORA COMIENZA LA SECCION INTERACTIVA DE LA FARMACIA <3:" << endl;
+	//ahora comenzamos la parte interactiva
+	cout <<endl<< "A PARTIR DE AHORA COMIENZA LA SECCION INTERACTIVA DE LA FARMACIA <3:" << endl<<endl;
 	string nombreApellido, dni, telefono, mail;
 	cout << "Ingrese su nombre y apellido: " << endl;
 	cin >> nombreApellido;
@@ -155,26 +156,28 @@ int main() {
 	cin >> dni;
 	cout << "Ingrese su telefono: " << endl;
 	cin >> telefono;
-	cout << "Ingrese su mail: " << endl;
+	cout << "Ingrese su mail: " <<endl;
 	cin >> mail;
-	cout << "Seleccione las secciones de la farmacia que desea visitar" << endl << "1-FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
+	cout << endl;
+	cout << "Seleccione las secciones de la farmacia que desea visitar (3)" << endl << "1-FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
 	array<necesidadCliente, 3> necesidadUsuario;
 	
-	for (int h = 0; h < 3; h++)
+	//llenamos el array de necesidades del usuario
+	int h = 0;
+	bool MasNecesidades = true;
+	for (h= 0; h < 3; h++)
 	{
 		bool flag=true;
 		int necesidadActual;
 		cin >> necesidadActual;
 		do
 		{
+			if (necesidadActual == 6) {
+				MasNecesidades = false;
+				break;
+			}
+				
 			try {
-				if (necesidadActual == 6)
-				{
-					for (int f = h; f < 3; f++)
-						necesidadUsuario[f] = unspecifiedNC;
-					break;
-				}
-
 				if (h != 0) {
 					for (int g = h - 1; g >= 0; g--)
 					{
@@ -191,11 +194,18 @@ int main() {
 				h--; //para que vuelva a preguntarlo, asi siempre tengo 3 distintas
 			}
 		} while (necesidadActual < 1 || necesidadActual>6);
+		if (!MasNecesidades)
+			break;
 	}
-	
-
+	if (h!=3)
+	{
+		cout << endl << "El usuario no desea ingresar a ninguna sección de la farmacia, termino la compra"<< endl;
+		return 0;
+	}
+			
+	//llenamos la billetera del usuario
 	float efectivoU, appU, debitoU, creditoU;
-	cout << "Ingrese su monto en efectivo: " << endl;
+	cout <<endl<< "Ingrese su monto en efectivo: " << endl;
 	cin >> efectivoU;
 	cout << "Ingrese su monto en la aplicacion del celular: " << endl;
 	cin >> appU;
@@ -206,7 +216,7 @@ int main() {
 
 	int ticketU;
 	do {
-		cout << "Si desea recibir ticket fisico elija 1, si desea recibir ticket digital elija 0: " << endl;
+		cout <<endl<< "Si desea recibir ticket fisico elija 1, si desea recibir ticket digital elija 0: " << endl;
 		cin >> ticketU;
 	} while (!(ticketU == 0 || ticketU == 1));
 
@@ -218,12 +228,12 @@ int main() {
 
 	CLIENTE* usuario = new CLIENTE(nombreApellido, dni, asistenteAutomatico.entregarTicket(), necesidadUsuario, efectivoU, appU, debitoU, creditoU, telefono, mail, bool(ticketU), metodoPago(prefMetPago - 1));
 
-	cout << "Ahora elija los productos que desea comprar: " << endl;
+	cout <<endl <<"Ahora elija los productos que desea comprar: " << endl;
 
 	int productoActual;
 	int cantidadActual;
 
-
+	//el usuario realiza su compra de los productos disponibles (los ya instanciados:))
 	for (int b = 0; b < 3; b++) {
 		bool sigueQueriendoProductos = true;
 
@@ -336,7 +346,7 @@ int main() {
 
 	int quiereGolosinasUsuario;
 	do {
-		cout << "Ingrese 1 si desea comprar golosinas o 0 si no: " << endl;
+		cout <<endl <<"Ingrese 1 si desea comprar golosinas o 0 si no: " << endl;
 		cin >> quiereGolosinasUsuario;
 
 	} while (quiereGolosinasUsuario != 0 && quiereGolosinasUsuario != 1);
