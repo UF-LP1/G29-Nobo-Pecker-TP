@@ -17,7 +17,7 @@ CLIENTE::CLIENTE(string na, string dni, unsigned int nro, array<necesidadCliente
     this->debito = debito;
     this->preferenciaTicketFisico = true;
     this->metP = metPago;
-    this->carrito = vector<PRODUCTO>(carrito.begin(), carrito.end());
+    this->carrito = vector<PRODUCTO*>(carrito.begin(), carrito.end());
     this->cantidades = vector<unsigned int>(cantidades.begin(), cantidades.end());
     for (int i = 0; i < 3; i++)
         this->necesidad[i] = nec[i]; 
@@ -157,15 +157,15 @@ bool CLIENTE::pagar(float monto, metodoPago metPago) {
     return pagado;
 }
 
-bool CLIENTE::comprarGolosinas(vector<pGolosinas>golosinas, vector<unsigned int >cant) { //este metodo le permite al cliente agregar una lista de golosinas a su carrito 
+bool CLIENTE::comprarGolosinas(vector<pGolosinas*>golosinas, vector<unsigned int >cant) { //este metodo le permite al cliente agregar una lista de golosinas a su carrito 
    
     for (int i = 0; i < golosinas.size(); i++)
     {
-        if (golosinas[i].get_stock() >= cant[i]) //siempre y cuando tenga stock
+        if (golosinas[i]->get_stock() >= cant[i]) //siempre y cuando tenga stock
         {
             this->carrito.push_back(golosinas[i]); //agrego la golosina en el carrito (vector de productos)
             this->cantidades.push_back(cant[i]); //agrego la cantidad de esa golosina que se lleva en el vector de cantidades
-            golosinas[i].set_stock(golosinas[i].get_stock() - cant[i]);
+            golosinas[i]->set_stock(golosinas[i]->get_stock() - cant[i]);
         }
         else return false;
     }

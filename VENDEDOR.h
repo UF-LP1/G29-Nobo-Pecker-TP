@@ -8,5 +8,5 @@ public:
 	VENDEDOR(string na, string dni, string tel, string mail);
 	~VENDEDOR();
 
-  void vender(CLIENTE* cliente, vector<PRODUCTO> productos, vector<unsigned int>cant);
+  void vender(CLIENTE* cliente, vector<PRODUCTO*> productos, vector<unsigned int>cant);
 };

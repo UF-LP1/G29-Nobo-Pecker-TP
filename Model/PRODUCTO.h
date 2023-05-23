@@ -17,7 +17,7 @@ public:
     PRODUCTO(string n);
     ~PRODUCTO();
 
-    string nombre;
+    std:: string nombre;
     void set_stock(int n);
     void set_precio(float precio);
     void set_descuento(unsigned int descuento);

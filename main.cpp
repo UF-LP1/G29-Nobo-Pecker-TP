@@ -19,33 +19,33 @@ int main() {
 
 	//construyo los productos
 	//por default los decuentos se inicializan en 0 como los demas atributos, asi que los productos que no tienen un set descuento es porque no tienen descuento
-	pOrtopedia productoOrtopedia1("vendas_azules", vendas_elasticas);
-	productoOrtopedia1.set_precio(1000.0);
-	productoOrtopedia1.set_descuento(10);
-	productoOrtopedia1.set_stock(50);
-	pOrtopedia productoOrtopedia2("cabestrillos", cabestrillos);
-	productoOrtopedia2.set_precio(1500.0);
-	productoOrtopedia2.set_stock(10);
-	pPerfumeria productoPerfumeria1("shampoo_violeta", shampoo);
-	productoPerfumeria1.set_precio(800.0);
-	productoPerfumeria1.set_stock(10);
-	pPerfumeria productoPerfumeria2("esmalte_rojo", esmalte);
-	productoPerfumeria2.set_precio(200.0);
-	productoPerfumeria2.set_descuento(15);
-	productoPerfumeria2.set_stock(25);
-	pMedicamentos medicamento1("Ibuprofeno", "dolor_de_cabeza", true);
-	medicamento1.set_precio(500.0);
-	medicamento1.set_descuento(15);
-	medicamento1.set_stock(100);
-	pMedicamentos medicamento2("Actron", "dolor_muscular", true);
-	medicamento2.set_precio(600.0);
-	medicamento2.set_stock(100);
-	pGolosinas golosina1("chocolate_blanco", chocolate);
-	golosina1.set_precio(150.0);
-	golosina1.set_stock(50);
-	pGolosinas golosina2("chupetin_frutilla", chupetin);
-	golosina2.set_precio(100.0);
-	golosina2.set_stock(5);
+	pOrtopedia* productoOrtopedia1= new pOrtopedia("vendas_azules", vendas_elasticas);
+	productoOrtopedia1->set_precio(1000.0);
+	productoOrtopedia1->set_descuento(10);
+	productoOrtopedia1->set_stock(50);
+	pOrtopedia* productoOrtopedia2=new pOrtopedia("cabestrillos", cabestrillos);
+	productoOrtopedia2->set_precio(1500.0);
+	productoOrtopedia2->set_stock(10);
+	pPerfumeria* productoPerfumeria1= new pPerfumeria("shampoo_violeta", shampoo);
+	productoPerfumeria1->set_precio(800.0);
+	productoPerfumeria1->set_stock(10);
+	pPerfumeria* productoPerfumeria2=new pPerfumeria("esmalte_rojo", esmalte);
+	productoPerfumeria2->set_precio(200.0);
+	productoPerfumeria2->set_descuento(15);
+	productoPerfumeria2->set_stock(25);
+	pMedicamentos* medicamento1=new pMedicamentos("Ibuprofeno", "dolor_de_cabeza", true);
+	medicamento1->set_precio(500.0);
+	medicamento1->set_descuento(15);
+	medicamento1->set_stock(100);
+	pMedicamentos* medicamento2=new pMedicamentos("Actron", "dolor_muscular", true);
+	medicamento2->set_precio(600.0);
+	medicamento2->set_stock(100);
+	pGolosinas* golosina1=new pGolosinas("chocolate_blanco", chocolate);
+	golosina1->set_precio(150.0);
+	golosina1->set_stock(50);
+	pGolosinas* golosina2=new pGolosinas("chupetin_frutilla", chupetin);
+	golosina2->set_precio(100.0);
+	golosina2->set_stock(5);
 
 	//construyo el asistente automatico
 	ASIST_AUTOM asistenteAutomatico;
@@ -80,7 +80,7 @@ int main() {
 			tipoEmpleado empleadoActual = empleadoMostrador.atenderCliente(cliente, a);
 			if (empleadoActual == unspecifiedTE)
 				break;
-			vector<PRODUCTO> productos;
+			vector<PRODUCTO*> productos;
 			vector<unsigned int> cantidades;
 			switch (empleadoActual)
 			{
@@ -128,7 +128,7 @@ int main() {
 		//cuando estaba por ir a pagar vio las golosinas y la tento un chocolate y unos chupetines asi que se va a comprar un chocolate y unos chupetines
 		int quiereGolosinas = rand() % 2;
 		if (quiereGolosinas == 0) { //si me devuelven todos 0 es porque se arrepintio de comprar golosinas, que se le va a hacer
-			vector<pGolosinas> listaGolosinas;
+			vector<pGolosinas*> listaGolosinas;
 			listaGolosinas.push_back(golosina1);
 			listaGolosinas.push_back(golosina2);
 			vector<unsigned int> cantidadesGolosinas;
@@ -142,8 +142,9 @@ int main() {
 
 		//una vez que termino de pagar, lo saco de la fila de clientes para seguir con el proximo
 		filaClientes.pop();
-		//delete cliente;
 	}
+
+	//delete cliente
 	delete cliente1;
 	delete cliente2;
 	delete cliente3;
@@ -248,7 +249,7 @@ int main() {
 	for (int b = 0; b < 3; b++) {
 		bool sigueQueriendoProductos = true;
 
-		vector <PRODUCTO> carritoUsuario;
+		vector <PRODUCTO*> carritoUsuario;
 		vector <unsigned int> cantidadesUsuario;
 
 		switch (usuario->get_nec()[b]) {
@@ -257,7 +258,7 @@ int main() {
 			YaCompro1 = false; //para que no me ingrese el mismo producto por separado
 			YaCompro2 = false;
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA: $"<<productoPerfumeria1.get_precio() << endl << "2-ESMALTE ROJO: $" <<productoPerfumeria2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA: $"<<productoPerfumeria1->get_precio() << endl << "2-ESMALTE ROJO: $" <<productoPerfumeria2->get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -303,7 +304,7 @@ int main() {
 			YaCompro1 = false; 
 			YaCompro2 = false;
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES: $"<<productoOrtopedia1.get_precio() << endl << "2-CABESTRILLOS: $" <<productoOrtopedia2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES: $"<<productoOrtopedia1->get_precio() << endl << "2-CABESTRILLOS: $" <<productoOrtopedia2->get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -354,7 +355,7 @@ int main() {
 			YaCompro1 = false;
 			YaCompro2 = false;
 			do {
-				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO: $"<<medicamento1.get_precio() << endl << "2-ACTRON: $"<<medicamento2.get_precio()<< endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
+				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO: $"<<medicamento1->get_precio() << endl << "2-ACTRON: $"<<medicamento2->get_precio()<< endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
@@ -408,12 +409,12 @@ int main() {
 
 	} while (quiereGolosinasUsuario != 0 && quiereGolosinasUsuario != 1);
 	if ((bool(quiereGolosinasUsuario))) {
-		vector <pGolosinas> golosinasUsuario;
+		vector <pGolosinas*> golosinasUsuario;
 		vector <unsigned int> cantGolosinasU;
 		cout << endl << "-------------------------GOLOSINAS----------------------------" << endl;
 		do
 		{
-		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO: $"<<golosina1.get_precio() << endl << "2-CHUPETIN DE FRUTILLA: $"<<golosina2.get_precio() << endl << "3-NO DESEO MAS GOLOSINAS" << endl;
+		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO: $"<<golosina1->get_precio() << endl << "2-CHUPETIN DE FRUTILLA: $"<<golosina2->get_precio() << endl << "3-NO DESEO MAS GOLOSINAS" << endl;
 		cin >> productoActual;
 
 		YaCompro1 = false;
@@ -456,7 +457,16 @@ int main() {
 	}
 	cajero.cobrar(usuario, NoboPecker);
 
+	//elimino todo lo dinamico
 	delete usuario;
+	delete productoOrtopedia1;
+	delete productoOrtopedia2;
+	delete productoPerfumeria1;
+	delete productoPerfumeria2;
+	delete medicamento1;
+	delete medicamento2;
+	delete golosina1;
+	delete golosina2;
 
 	//pero antes de cerrar la farmacia hay que limpiarla 
 	empleadoLimpieza.limpiar(NoboPecker);

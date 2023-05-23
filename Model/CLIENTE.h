@@ -25,14 +25,14 @@ private:
 
 public:
 
-    vector<PRODUCTO> carrito;
+    vector<PRODUCTO*> carrito;
     vector<unsigned int> cantidades;
 
     CLIENTE(string na, string dni, unsigned int nro, array<necesidadCliente,3> nec, float efectivo, float app, float debito, float credito, string tel, string mail, bool prefTicketFisico, metodoPago metPago);//C
     ~CLIENTE(); //D
 
     bool pagar(float monto, metodoPago metPago);
-    bool comprarGolosinas(vector <pGolosinas> golosinas, vector<unsigned int> cant);
+    bool comprarGolosinas(vector <pGolosinas*> golosinas, vector<unsigned int> cant);
     void set_nec(array <necesidadCliente,3> necesidad);
     void set_metP(metodoPago metPago);
     void set_prefTicket(bool prefTicketFisico);

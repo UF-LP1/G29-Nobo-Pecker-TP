@@ -29,13 +29,13 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     //calculo el monto total
     for (int i = 0; i < cliente->carrito.size(); i++)
     {    
-        PRODUCTO* actual = &(cliente->carrito[i]);
+        PRODUCTO* actual = cliente->carrito[i];
         if (dynamic_cast<pMedicamentos*>(actual) != nullptr)
             descuento = dynamic_cast<pMedicamentos*>(actual)->descuento_total(cliente->get_nec());
         else
              descuento = actual->descuento_total(cliente->get_nec());
-        monto = monto + (cliente->carrito[i].get_precio()*(100-descuento)/100 )* cliente->cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
-        delete actual;
+        monto = monto + (cliente->carrito[i]->get_precio()*(100-descuento)/100 )* cliente->cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
+        
     }
     try {
 
@@ -57,7 +57,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     }
     if (j == 4) {
         for (int l = 0; l < cliente->carrito.size(); l++) {
-            cliente->carrito[l].set_stock(cliente->carrito[l].get_stock() + cliente->cantidades[l]);
+            cliente->carrito[l]->set_stock(cliente->carrito[l]->get_stock() + cliente->cantidades[l]);
         }
         throw exception(); //si no pudo pagar con ninguno de los otros metodos, restockeo mi farmacia y lanzo una excepcion
     }
@@ -77,8 +77,8 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     if (cliente->get_prefTicket()) {
         cout << "Cliente nro: " << cliente->get_nro() << endl;
         for (int y = 0; y < cliente->carrito.size(); y++) {
-            cout << "Producto: " << cliente->carrito[y].nombre << '\t' << "Precio parcial: $" << cliente->carrito[y].get_precio() << '\t' << "Cantidad: " << cliente->cantidades[y] << '\t' << "Precio total: $" << (cliente->carrito[y].get_precio()*cliente->cantidades[y])<<endl;
-            montoSinDescuento = montoSinDescuento + (cliente->carrito[y].get_precio()*cliente->cantidades[y]);
+            cout << "Producto: " << cliente->carrito[y]->nombre << '\t' << "Precio parcial: $" << cliente->carrito[y]->get_precio() << '\t' << "Cantidad: " << cliente->cantidades[y] << '\t' << "Precio total: $" << (cliente->carrito[y]->get_precio()*cliente->cantidades[y])<<endl;
+            montoSinDescuento = montoSinDescuento + (cliente->carrito[y]->get_precio()*cliente->cantidades[y]);
         }
         cout<< "Total: $" << montoSinDescuento << endl<< "Descuento aplicado: $"<<(montoSinDescuento-monto)<<endl<<"Total a pagar: $"<<monto<<endl;
         cout << "Metodo de pago: " << to_string_metPago(cliente->get_metP()) << endl<< endl;
