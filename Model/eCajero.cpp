@@ -29,12 +29,13 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
     //calculo el monto total
     for (int i = 0; i < cliente->carrito.size(); i++)
     {    
-        PRODUCTO* actual = &cliente->carrito[i];
+        PRODUCTO* actual = &(cliente->carrito[i]);
         if (dynamic_cast<pMedicamentos*>(actual) != nullptr)
             descuento = dynamic_cast<pMedicamentos*>(actual)->descuento_total(cliente->get_nec());
         else
              descuento = actual->descuento_total(cliente->get_nec());
         monto = monto + (cliente->carrito[i].get_precio()*(100-descuento)/100 )* cliente->cantidades[i]; //regla de 3: si en 100 cobro (100- descuento), en "precio" cobro ("precio*(100-descuento)/100)         
+        delete actual;
     }
     try {
 

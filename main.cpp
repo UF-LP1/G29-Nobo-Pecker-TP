@@ -54,6 +54,7 @@ int main() {
 	queue<CLIENTE*>filaClientes;
 
 	//genero un array de necesidades para cada cliente
+
 	array<necesidadCliente, 3> necesidades1 = generarNecesidades();
 	array<necesidadCliente, 3>necesidades2 = generarNecesidades();
 	array<necesidadCliente, 3>necesidades3 = generarNecesidades();
