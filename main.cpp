@@ -177,6 +177,10 @@ int main() {
 		do
 		{
 			if (necesidadActual == 6) {
+				for(int e=h;e<3;e++)
+				{ 
+					necesidadUsuario[e] = unspecifiedNC;
+				}
 				MasNecesidades = false;
 				break;
 			}
@@ -201,9 +205,9 @@ int main() {
 		if (!MasNecesidades)
 			break;
 	}
-	if (h!=3)
+	if (necesidadUsuario[0]==unspecifiedNC)
 	{
-		cout << endl << "El usuario no desea ingresar a ninguna sección de la farmacia, termino la compra"<< endl;
+		cout << endl << "El usuario no desea ingresar a ninguna seccion de la farmacia, termino la compra"<< endl;
 		return 0;
 	}
 			
@@ -236,6 +240,7 @@ int main() {
 
 	int productoActual;
 	int cantidadActual;
+	bool YaCompro1, YaCompro2;
 
 	//el usuario realiza su compra de los productos disponibles (los ya instanciados:))
 	for (int b = 0; b < 3; b++) {
@@ -246,28 +251,41 @@ int main() {
 
 		switch (usuario->get_nec()[b]) {
 		case perfumeria: { 
-			
+			YaCompro1 = false; //para que no me ingrese el mismo producto por separado
+			YaCompro2 = false;
 			do {
 				cout << "Ingrese el producto a eleccion: " << endl << "1-SHAMPOO VIOLETA: $"<<productoPerfumeria1.get_precio() << endl << "2-ESMALTE ROJO: $" <<productoPerfumeria2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
 				case 1: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
-					carritoUsuario.push_back(productoPerfumeria1);
-					cantidadesUsuario.push_back(cantidadActual);
+					if (!YaCompro1)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
+						carritoUsuario.push_back(productoPerfumeria1);
+						cantidadesUsuario.push_back(cantidadActual);
 					}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro1 = true;
 					break;
 				}
 				case 2: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
-					carritoUsuario.push_back(productoPerfumeria2);
-					cantidadesUsuario.push_back(cantidadActual);
+					if (!YaCompro2)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
+						carritoUsuario.push_back(productoPerfumeria2);
+						cantidadesUsuario.push_back(cantidadActual);
 					}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro2 = true;
 					break;
 				}
 				default:
@@ -278,27 +296,42 @@ int main() {
 			break;
 		}
 		case ortopedia: { 
+			YaCompro1 = false; 
+			YaCompro2 = false;
 			do {
 				cout << "Ingrese el producto a eleccion: " << endl << "1-VENDAS AZULES: $"<<productoOrtopedia1.get_precio() << endl << "2-CABESTRILLOS: $" <<productoOrtopedia2.get_precio() << endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
 				case 1: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
-					carritoUsuario.push_back(productoOrtopedia1);
-					cantidadesUsuario.push_back(cantidadActual);
+					if (!YaCompro1)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
+						carritoUsuario.push_back(productoOrtopedia1);
+						cantidadesUsuario.push_back(cantidadActual);
 					}
-				}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro1 = true;
 					break;
+				}
 				case 2: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
+					if (!YaCompro2)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
 						carritoUsuario.push_back(productoOrtopedia2);
 						cantidadesUsuario.push_back(cantidadActual);
 					}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro2 = true;
+					break;
 				}
 				default:
 					break;
@@ -313,27 +346,42 @@ int main() {
 			break;
 		}
 		default: {//alguna farmacia
+			YaCompro1 = false;
+			YaCompro2 = false;
 			do {
 				cout << "Ingrese el producto a eleccion: " << endl << "1-IBUPROFENO: $"<<medicamento1.get_precio() << endl << "2-ACTRON: $"<<medicamento2.get_precio()<< endl << "3-NO DESEO MAS PRODUCTOS DE ESTA SECCION" << endl;
 				cin >> productoActual;
 				
 				switch (productoActual) {
 				case 1: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
-					carritoUsuario.push_back(medicamento1);
-					cantidadesUsuario.push_back(cantidadActual);
+					if (!YaCompro1)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
+						carritoUsuario.push_back(medicamento1);
+						cantidadesUsuario.push_back(cantidadActual);
 					}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro1 = true;
 					break;
 				}
 				case 2: {
-					cout << "Ingrese la cantidad de ejemplares: " << endl;
-					cin >> cantidadActual;
-					if (cantidadActual > 0) {
-					carritoUsuario.push_back(medicamento2);
-					cantidadesUsuario.push_back(cantidadActual);
+					if (!YaCompro2)
+					{
+						do {
+							cout << "Ingrese la cantidad de ejemplares: " << endl;
+							cin >> cantidadActual;
+
+						} while (cantidadActual <= 0);
+						carritoUsuario.push_back(medicamento2);
+						cantidadesUsuario.push_back(cantidadActual);
 					}
+					else cout << "Ya compro este producto"<<endl;
+					YaCompro2 = true;
+					break;
 				}
 				default:
 					break;
@@ -361,23 +409,38 @@ int main() {
 		{
 		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO: $"<<golosina1.get_precio() << endl << "2-CHUPETIN DE FRUTILLA: $"<<golosina2.get_precio() << endl << "3-NO DESEO MAS GOLOSINAS" << endl;
 		cin >> productoActual;
+
+		YaCompro1 = false;
+		YaCompro2 = false;
 		switch (productoActual) {
 		case 1: {
-			cout << "Ingrese la cantidad de ejemplares: " << endl;
-			cin >> cantidadActual;
-			if (cantidadActual > 0) {
+			if (!YaCompro1)
+			{
+				do{
+					cout << "Ingrese la cantidad de ejemplares: " << endl;
+					cin >> cantidadActual;
+				} while (cantidadActual <= 0);
 			golosinasUsuario.push_back(golosina1);
 			cantGolosinasU.push_back(cantidadActual);
 			}
+			else cout << "Ya compro este producto" << endl;
+			YaCompro1 = true;
+
 			break;
 		}
 		case 2: {
-			cout << "Ingrese la cantidad de ejemplares: " << endl;
-			cin >> cantidadActual;
-			if (cantidadActual > 0) {
-			golosinasUsuario.push_back(golosina2);
-			cantGolosinasU.push_back(cantidadActual);
+			if (!YaCompro2)
+			{
+				do {
+					cout << "Ingrese la cantidad de ejemplares: " << endl;
+					cin >> cantidadActual;
+				} while (cantidadActual <= 0);
+				golosinasUsuario.push_back(golosina2);
+				cantGolosinasU.push_back(cantidadActual);
 			}
+			else cout << "Ya compro este producto" << endl;
+			YaCompro2 = true;
+			break;
 		}
 		default:
 			break;
