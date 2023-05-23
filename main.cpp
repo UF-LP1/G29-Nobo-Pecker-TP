@@ -154,7 +154,7 @@ int main() {
 	//ACLARACION: todos los do-while en realidad tendrian que ser excepciones que avisen que tipo de error se cometio, pero como no son obligatorias en este TP,  las vamos a implementar para el TP final
 	cout <<endl<< "A PARTIR DE AHORA COMIENZA LA SECCION INTERACTIVA DE LA FARMACIA <3:" << endl<<endl;
 	string nombreApellido, dni, telefono, mail;
-	cout << "Ingrese su nombre y apellido: " << endl;
+	cout << "Ingrese su nombre y apellido: (sin espacios)" << endl;
 	cin >> nombreApellido;
 	cout << "Ingrese su DNI: " << endl;
 	cin >> dni;
