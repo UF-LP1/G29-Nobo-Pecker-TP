@@ -144,7 +144,7 @@ int main() {
 		filaClientes.pop();
 	}
 
-	//delete cliente
+	//delete clientes
 	delete cliente1;
 	delete cliente2;
 	delete cliente3;
@@ -165,7 +165,7 @@ int main() {
 	cout << "Ingrese su mail: " <<endl;
 	cin >> mail;
 	cout << endl;
-	cout << "Seleccione las secciones de la farmacia que desea visitar (3)" << endl << "1-FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones"<<endl;;
+	cout << "Secciones de la farmacia:" << endl << "1-FARMACIA CON OBRA SOCIAL" << endl << "2-FARMACIA PARTICULAR" << endl << "3-FARMACIA CON PAMI" << endl << "4-PERFUMERIA" << endl << "5-ORTOPEDIA" << endl << "6-No deseo seleccionar mas secciones" << endl;
 	array<necesidadCliente, 3> necesidadUsuario;
 	
 	//llenamos el array de necesidades del usuario
@@ -173,11 +173,13 @@ int main() {
 	bool MasNecesidades = true;
 	for (h= 0; h < 3; h++)
 	{
+		cout << endl << "Seleccione una seccion: " << endl;
 		bool flag=true;
 		int necesidadActual;
-		cin >> necesidadActual;
 		do
 		{
+			cin >> necesidadActual;
+			
 			if (necesidadActual == 6) {
 				for(int e=h;e<3;e++)
 				{ 
@@ -203,7 +205,9 @@ int main() {
 				cout << "Esa seccion ya fue ingresada, por favor elija otra: " << endl;
 				h--; //para que vuelva a preguntarlo, asi siempre tengo 3 distintas
 			}
-		} while (necesidadActual < 1 || necesidadActual>6);
+			if (necesidadActual < 1 || necesidadActual > 6)
+				cout << "Seccion no valida, por favor ingrese otra: " << endl;
+		} while (necesidadActual < 1 || necesidadActual > 6);
 		if (!MasNecesidades)
 			break;
 	}
