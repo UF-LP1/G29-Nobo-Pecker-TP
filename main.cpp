@@ -226,6 +226,7 @@ int main() {
 	do {
 		cout <<endl<< "Si desea recibir ticket fisico elija 1, si desea recibir ticket digital elija 0: " << endl;
 		cin >> ticketU;
+		cout << endl;
 	} while (!(ticketU == 0 || ticketU == 1));
 
 	int prefMetPago;
