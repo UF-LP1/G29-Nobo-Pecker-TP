@@ -251,6 +251,7 @@ int main() {
 
 		switch (usuario->get_nec()[b]) {
 		case perfumeria: { 
+			cout << endl << "-------------------------PERFUMERIA----------------------------" << endl;
 			YaCompro1 = false; //para que no me ingrese el mismo producto por separado
 			YaCompro2 = false;
 			do {
@@ -296,6 +297,7 @@ int main() {
 			break;
 		}
 		case ortopedia: { 
+			cout << endl << "-------------------------ORTOPEDIA----------------------------" << endl;
 			YaCompro1 = false; 
 			YaCompro2 = false;
 			do {
@@ -346,6 +348,7 @@ int main() {
 			break;
 		}
 		default: {//alguna farmacia
+			cout << endl << "-------------------------FARMACIA----------------------------" << endl;
 			YaCompro1 = false;
 			YaCompro2 = false;
 			do {
@@ -405,6 +408,7 @@ int main() {
 	if ((bool(quiereGolosinasUsuario))) {
 		vector <pGolosinas> golosinasUsuario;
 		vector <unsigned int> cantGolosinasU;
+		cout << endl << "-------------------------GOLOSINAS----------------------------" << endl;
 		do
 		{
 		cout << "Ingrese las golosinas que desea: " << endl << "1-CHOCOLATE BLANCO: $"<<golosina1.get_precio() << endl << "2-CHUPETIN DE FRUTILLA: $"<<golosina2.get_precio() << endl << "3-NO DESEO MAS GOLOSINAS" << endl;
