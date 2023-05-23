@@ -147,7 +147,11 @@ int main() {
 	delete cliente2;
 	delete cliente3;
 
+
+
 	//ahora comenzamos la parte interactiva
+
+	//ACLARACION: todos los do-while en realidad tendrian que ser excepciones que avisen que tipo de error se cometio, pero como no son obligatorias en este TP,  las vamos a implementar para el TP final
 	cout <<endl<< "A PARTIR DE AHORA COMIENZA LA SECCION INTERACTIVA DE LA FARMACIA <3:" << endl<<endl;
 	string nombreApellido, dni, telefono, mail;
 	cout << "Ingrese su nombre y apellido: " << endl;
