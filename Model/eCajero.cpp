@@ -45,7 +45,7 @@ float eCajero::cobrar(CLIENTE* cliente, FARMACIA farmacia) {
 
     //si no llega a tener la plata suficiente en el metodo que eligio (no se pueden mezclar metodos de pago en mi farmacia), pruebo con los otros
     int j=0;
-    metodoPago aux=(metodoPago)0;
+    metodoPago aux=MP;
     if (!pagoCliente)
     {
         for (j = 0; j < 4; j++)
